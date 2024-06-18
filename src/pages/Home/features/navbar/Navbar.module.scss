@@ -1,0 +1,37 @@
+@import '../../../../styles/_variables';
+
+.navbarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 80px;
+    padding: 0 1rem;
+    box-shadow: $light-mode-primary-box-shadow;
+    background-color: $light-mode-primary-bg-color;
+
+    .navigateContainer {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+    }
+
+    .navigateIcon {
+        font-size: 1.2rem;
+        color: $light-mode-secondary-text-color;
+    }
+
+    .navigate {
+        @extend .navigateIcon;
+        font-size: 1rem;
+    }
+
+    @media (max-width: $small) {
+        justify-content: flex-start;
+        
+        .navigateContainer {
+            display: none;
+        }
+    }
+}
