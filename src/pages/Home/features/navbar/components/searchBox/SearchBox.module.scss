@@ -1,0 +1,47 @@
+@import '../../../../../../styles/variables';
+
+.searchWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    height: 50px;
+    border-bottom: 3px solid $base-main-color;
+    border-radius: 6px;
+    box-shadow: 1px 1px 2px 1px $light-mode-primary-shadow-color , -1px -1px 2px 1px $light-mode-primary-shadow-color;
+
+    .searchButton {
+        all: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        height: 100%;
+        cursor: pointer;
+    }
+    
+    .searchField {
+        color: $light-mode-secondary-text-color;
+        font-size: 1.1rem;
+        width: 89%;
+        height: 100%;
+        border: none;
+        outline: none;
+    }
+
+    .searchField::placeholder {
+        color: $light-mode-secondary-text-color;
+        font-size: 1.1rem;
+    }
+
+    .searchIcon {
+        font-size: 1.3rem;
+        color: $light-mode-secondary-text-color;
+    }
+
+    @media (max-width: $small) {
+        .searchWrapper {
+            width: 80%
+        }
+    }
+}
+
