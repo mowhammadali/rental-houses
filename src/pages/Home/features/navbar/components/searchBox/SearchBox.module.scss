@@ -1,47 +1,62 @@
-@import '../../../../../../styles/variables';
+@import "../../../../../../styles/variables";
+@import "../../../../../../styles/mixin";
 
 .searchWrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 500px;
-    height: 50px;
-    border-bottom: 3px solid $base-main-color;
-    border-radius: 6px;
-    box-shadow: 1px 1px 2px 1px $light-mode-primary-shadow-color , -1px -1px 2px 1px $light-mode-primary-shadow-color;
+    @include flexBox(null, space-between, null, null);
+    @include boxModel(500px, 50px, null, null, null) {
+        border-bottom: 3px solid $base-main-color;
+        border-radius: 6px;
+    }
+
+    box-shadow: 1px 1px 2px 1px $light-mode-primary-shadow-color,
+        -1px -1px 2px 1px $light-mode-primary-shadow-color;
 
     .searchButton {
         all: unset;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 10%;
-        height: 100%;
+        @include flexBox(null, center, center, null);
+        @include boxModel(10%, 100%, null, null, null);
         cursor: pointer;
     }
-    
+
     .searchField {
-        color: $light-mode-secondary-text-color;
-        font-size: 1.1rem;
-        width: 89%;
-        height: 100%;
-        border: none;
-        outline: none;
+        @include textStyles(1.1rem, null, $light-mode-secondary-text-color);
+        @include boxModel(89%, 100%, null, null, null) {
+            border: none;
+            outline: none;
+        }
     }
 
     .searchField::placeholder {
-        color: $light-mode-secondary-text-color;
-        font-size: 1.1rem;
+        @include textStyles(1.1rem, null, $light-mode-secondary-text-color);
     }
 
     .searchIcon {
-        font-size: 1.3rem;
-        color: $light-mode-secondary-text-color;
+        @include textStyles(1.3rem, null, $light-mode-secondary-text-color);
     }
 
-    @media (max-width: $small) {
-        .searchWrapper {
-            width: 80%
+    @include media("S", false) {
+        width: 60%;
+    }
+
+    @include media("XS", false) {
+        width: 65%;
+        height: 40px;
+
+        .searchButton {
+            width: 15%;
+        }
+
+        .searchField {
+            width: 84%;
+            font-size: 0.8rem;
+        }
+
+        .searchField::placeholder {
+            font-size: 0.8rem;
+        }
+
+        .searchIcon {
+            font-size: 1rem;
         }
     }
 }
-

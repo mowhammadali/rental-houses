@@ -1,37 +1,33 @@
-@import '../../../../styles/_variables';
+@import "../../../../styles/_variables";
+@import "../../../../styles/mixin";
 
 .navbarContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 80px;
-    padding: 0 1rem;
+    @include flexBox(null, space-around, center, null);
+    @include boxModel(100%, 80px, 0 1rem, null, $light-mode-primary-bg-color);
     box-shadow: $light-mode-primary-box-shadow;
-    background-color: $light-mode-primary-bg-color;
 
     .navigateContainer {
-        display: flex;
-        align-items: center;
-        gap: 6px;
+        @include flexBox(null, null, center, 6px);
         text-decoration: none;
     }
 
     .navigateIcon {
-        font-size: 1.2rem;
-        color: $light-mode-secondary-text-color;
+        @include textStyles(1.2rem, null, $light-mode-secondary-text-color);
     }
 
     .navigate {
-        @extend .navigateIcon;
-        font-size: 1rem;
+        @include textStyles(1rem, null, $light-mode-secondary-text-color);
     }
 
-    @media (max-width: $small) {
-        justify-content: flex-start;
-        
-        .navigateContainer {
-            display: none;
+    @include media("XS", false) {
+        justify-content: space-between;
+
+        .navigateIcon {
+            font-size: 1rem;
+        }
+
+        .navigate {
+            font-size: 0.8rem;
         }
     }
 }

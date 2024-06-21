@@ -10,34 +10,56 @@
 .searchWrapper .searchButton {
   all: unset;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 10%;
   height: 100%;
   cursor: pointer;
 }
 .searchWrapper .searchField {
-  color: #535b66;
   font-size: 1.1rem;
+  color: #535b66;
   width: 89%;
   height: 100%;
   border: none;
   outline: none;
 }
 .searchWrapper .searchField::-moz-placeholder {
-  color: #535b66;
   font-size: 1.1rem;
+  color: #535b66;
 }
 .searchWrapper .searchField::placeholder {
-  color: #535b66;
   font-size: 1.1rem;
+  color: #535b66;
 }
 .searchWrapper .searchIcon {
   font-size: 1.3rem;
   color: #535b66;
 }
 @media (max-width: 768px) {
-  .searchWrapper .searchWrapper {
-    width: 80%;
+  .searchWrapper {
+    width: 60%;
+  }
+}
+@media (max-width: 576px) {
+  .searchWrapper {
+    width: 65%;
+    height: 40px;
+  }
+  .searchWrapper .searchButton {
+    width: 15%;
+  }
+  .searchWrapper .searchField {
+    width: 84%;
+    font-size: 0.8rem;
+  }
+  .searchWrapper .searchField::-moz-placeholder {
+    font-size: 0.8rem;
+  }
+  .searchWrapper .searchField::placeholder {
+    font-size: 0.8rem;
+  }
+  .searchWrapper .searchIcon {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=SearchBox.module.css.map */

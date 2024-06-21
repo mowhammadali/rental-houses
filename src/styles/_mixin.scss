@@ -1,0 +1,68 @@
+@import "./variables";
+
+@mixin media($size, $hasInterval) {
+    @if ($size == "XS") {
+        @media (max-width: $extra-small) {
+            @content;
+        }
+    } @else if ($size == "S") {
+        @if ($hasInterval) {
+            @media (max-width: $small) and (min-width: ($extra-small + 1)) {
+                @content;
+            }
+        } @else {
+            @media (max-width: $small) {
+                @content;
+            }
+        }
+    } @else if ($size == "M") {
+        @if ($hasInterval) {
+            @media (max-width: $medium) and (min-width: ($small + 1)) {
+                @content;
+            }
+        } @else {
+            @media (max-width: $medium) {
+                @content;
+            }
+        }
+    } @else if ($size == "L") {
+        @if ($hasInterval) {
+            @media (max-width: $large) and (min-width: ($medium + 1)) {
+                @content;
+            }
+        } @else {
+            @media (max-width: $large) {
+                @content;
+            }
+        }
+    } @else if ($size == "XL") {
+        @media (min-width: ($large - 1)) {
+            @content;
+        }
+    }
+}
+
+@mixin textStyles($fontSize, $fontWeight, $color) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $color;
+    @content;
+}
+
+@mixin flexBox($flexDir, $justifyContent, $alignItems, $gap) {
+    display: flex;
+    flex-direction: $flexDir;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    gap: $gap;
+    @content;
+}
+
+@mixin boxModel($width, $height, $padding, $margin, $bgColor) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    margin: $margin;
+    background-color: $bgColor;
+    @content;
+}
