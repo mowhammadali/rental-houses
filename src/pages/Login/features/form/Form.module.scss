@@ -49,16 +49,6 @@
         opacity: 1;
     }
 
-    .rules {
-        font-size: 0.9rem;
-        color: $slate-500;
-        margin-bottom: 6px;
-    }
-
-    .rulesLink {
-        color: $blue-800;
-    }
-
     .entrance {
         @include textStyles(0.8rem, null, $slate-500);
         @include flexBox(row, null, center, 5px);
@@ -82,8 +72,7 @@
         }
 
         .fieldLable,
-        .field,
-        .rules {
+        .field {
             font-size: 0.8rem;
         }
     }

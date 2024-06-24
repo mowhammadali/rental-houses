@@ -1,7 +1,7 @@
 import css from "./Form.module.css";
 import { NavLink } from "react-router-dom";
 
-const Form = () => {
+const Form = (): JSX.Element => {
     return (
         <form className={css.formContainer}>
             <h1 className={css.title}>ثبت نام</h1>
@@ -30,7 +30,7 @@ const Form = () => {
             </div>
             <div>
                 <p className={css.rules}>
-                    ورود یا ثبت نام به معنای پذیرش{" "}
+                    ثبت نام به معنای پذیرش{" "}
                     <span className={css.rulesLink}>قوانین سایت</span> میباشد.
                 </p>
             </div>

@@ -50,14 +50,6 @@
 .formContainer .fieldErrorMessage.active {
   opacity: 1;
 }
-.formContainer .rules {
-  font-size: 0.9rem;
-  color: #64748b;
-  margin-bottom: 6px;
-}
-.formContainer .rulesLink {
-  color: #1e40af;
-}
 .formContainer .entrance {
   font-size: 0.8rem;
   color: #64748b;
@@ -89,8 +81,7 @@
     font-size: 1.5rem;
   }
   .formContainer .fieldLable,
-  .formContainer .field,
-  .formContainer .rules {
+  .formContainer .field {
     font-size: 0.8rem;
   }
 }/*# sourceMappingURL=Form.module.css.map */
