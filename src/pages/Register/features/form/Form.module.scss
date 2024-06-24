@@ -1,0 +1,82 @@
+@import '../../../../styles/mixin';
+@import '../../../../styles/variables';
+
+.formContainer {
+    @include boxModel(450px , auto , 12px 12px 18px 12px , 50px auto , transparent) {
+        border-radius: 0.8rem;
+        box-shadow: $light-mode-secondary-box-shadow;
+    };
+
+    @include flexBox(column , null , null , null);
+
+    .title {
+        color: $light-mode-primary-text-color;
+        margin: 0 auto 20px auto;
+    }
+    
+    .fields {
+        @include flexBox(column , null , center , 30PX);
+        margin-bottom: 35px;
+    }
+
+    .fieldContainer {
+        position: relative;
+        width: 100%;
+    }
+
+    .fieldLable {
+        margin-right: 4px;
+        color: $light-mode-primary-text-color;
+    }
+    
+    .field {
+        width: 100%;
+        margin-top: 6px;
+        @include registerField (false);
+    }
+
+    .fieldErrorMessage {
+        @include fieldErrorMessage(-22px);
+    }
+
+    .fieldErrorMessage.active {
+        opacity: 1;
+    }
+
+    .rules {
+        font-size: 0.9rem;
+        color: $slate-500;
+        margin-bottom: 6px;
+    }
+
+    .rulesLink {
+        color: $blue-800;
+    }
+    
+    .entrance {
+        @include textStyles(0.8rem , null , $slate-500);
+        @include flexBox(row , null , center , 5px);
+        margin-bottom: 20px;
+    }
+    
+    .entranceLink {
+        text-decoration: none;
+        color: $blue-800;
+    }
+
+    .registerButton {
+        @include commonButton(100% , 42px);
+    }
+
+    @include media('XS' , false) {
+        width: 80%;
+
+        .title {
+            font-size: 1.5rem;
+        }
+
+        .fieldLable , .field , .rules {
+            font-size: 0.8rem;
+        }
+    }
+}

@@ -1,9 +1,7 @@
-import React from 'react'
+import Form from './features/form/Form'
 
 const Register = (): JSX.Element => {
-    return (
-        <div>Register</div>
-    )
+    return <Form />
 }
 
 export default Register

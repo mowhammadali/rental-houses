@@ -66,3 +66,37 @@
     background-color: $bgColor;
     @content;
 }
+
+@mixin registerField($forPlaceholder) {
+    @if ($forPlaceholder) {
+        color: $slate-600;
+    } @else {
+        height: 38px;
+        padding: 0 8px;
+        font-size: 1rem;
+        outline: none;
+        border: 1px solid $gray-300;
+        border-radius: 10px;
+        color: $slate-600;
+    }
+}
+
+@mixin fieldErrorMessage($bottom) {
+    position: absolute;
+    bottom: $bottom;
+    margin-right: 4px;
+    font-size: 0.7rem;
+    color: $red-500;
+    opacity: 0;
+}
+
+@mixin commonButton ($width , $height) {
+    width: $width;
+    height: $height;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    color: $light-mode-primary-bg-color;
+    background-color: $dark-mode-primary-bg-color;
+}

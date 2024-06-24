@@ -7,7 +7,7 @@ const Navbar = (): JSX.Element => {
     return (
         <div className={css.navbarContainer}>
             <SearchBox />
-            <NavLink to="/" className={css.navigateContainer}>
+            <NavLink to="/register" className={css.navigateContainer}>
                 <TbDoorEnter className={css.navigateIcon}/>
                 <p className={css.navigate}>ورود / ثبت نام</p>
             </NavLink>

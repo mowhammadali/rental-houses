@@ -10,7 +10,19 @@ $dark-mode-secondary-bg-color: #535b66;
 $dark-mode-primary-text-color: #fff;
 $dark-mode-secondary-text-color: #f6f6f6;
 
+$gray-400: #9ca3af;
+$gray-300: #d1d5db;
+
+$slate-600: #475569;
+$slate-500: #64748b;
+
+$red-500: #ef4444;
+
+$blue-900: #1e3a8a;
+$blue-800: #1e40af;
+
 $light-mode-primary-box-shadow: 1px 2px 2px $light-mode-primary-shadow-color;
+$light-mode-secondary-box-shadow: 1px 1px 3px 1px $light-mode-primary-shadow-color , -1px -1px 3px 1px $light-mode-primary-shadow-color;
 
 $extra-small: 576px;
 $small: 768px;
