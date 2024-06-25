@@ -81,7 +81,7 @@ const Form = (): JSX.Element => {
                     ورود
                 </NavLink>
             </p>
-            <button className={css.registerButton}>ثبت نام</button>
+            <button className={css.registerButton} type="submit">ثبت نام</button>
         </form>
     );
 };
