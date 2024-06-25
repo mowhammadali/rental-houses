@@ -1,7 +1,12 @@
 import css from './Form.module.css';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegEyeSlash } from "react-icons/fa6";
 
 const Form = () => {
+    const [visible , setVisible] = useState<boolean>(false);
+
     return (
         <form className={css.formContainer}>
             <h1 className={css.title}>ورود</h1>
@@ -15,15 +20,24 @@ const Form = () => {
                 </section>
                 <section className={css.fieldContainer}>
                     <label className={css.fieldLable}>رمز عبور</label>
-                    <input type="password" className={css.field} />
+                    <div className={css.passwordWrapper}>
+                        <input type={visible ? 'text' : 'password'} className={css.field} />
+                        {
+                        visible 
+                        ?
+                        <FaRegEyeSlash className={css.eyeIcon} onClick={() => setVisible(bool => !bool)}/> 
+                        :
+                        <FaRegEye className={css.eyeIcon} onClick={() => setVisible(bool => !bool)}/>
+                        }
+                    </div>
                     <p className={css.fieldErrorMessage}>
                         این یک پیام تستی میباشد
                     </p>
                 </section>
             </div>
-            <p className={css.entrance}>
+            <p className={css.signup}>
                 حساب کاربری ندارید؟
-                <NavLink className={css.entranceLink} to="/register">
+                <NavLink className={css.signupLink} to="/register">
                     ثبت نام
                 </NavLink>
             </p>

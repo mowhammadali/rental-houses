@@ -39,6 +39,21 @@
   border-radius: 10px;
   color: #475569;
 }
+.formContainer .passwordWrapper {
+  margin-top: 6px;
+  position: relative;
+}
+.formContainer .passwordWrapper .field {
+  margin-top: 0;
+}
+.formContainer .eyeIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  color: #475569;
+}
 .formContainer .fieldErrorMessage {
   position: absolute;
   bottom: -22px;
@@ -50,16 +65,19 @@
 .formContainer .fieldErrorMessage.active {
   opacity: 1;
 }
-.formContainer .entrance {
+.formContainer .signup {
   font-size: 0.8rem;
   color: #64748b;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   margin-bottom: 20px;
 }
-.formContainer .entranceLink {
+.formContainer .signupLink {
   text-decoration: none;
   color: #1e40af;
 }

@@ -40,6 +40,24 @@
         margin-top: 6px;
         @include registerField(false);
     }
+    
+    .passwordWrapper {
+        margin-top: 6px;
+        position: relative;
+    }
+
+    .passwordWrapper .field {
+        margin-top: 0;
+    }
+
+    .eyeIcon {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        cursor: pointer;
+        transform: translateY(-50%);
+        color: $slate-600
+    }
 
     .fieldErrorMessage {
         @include fieldErrorMessage(-22px);
@@ -50,9 +68,10 @@
     }
 
     .rules {
+        user-select: none;
         font-size: 0.9rem;
-        color: $slate-500;
         margin-bottom: 6px;
+        color: $slate-500;
     }
 
     .rulesLink {
@@ -62,6 +81,7 @@
     .entrance {
         @include textStyles(0.8rem, null, $slate-500);
         @include flexBox(row, null, center, 5px);
+        user-select: none;
         margin-bottom: 20px;
     }
 
