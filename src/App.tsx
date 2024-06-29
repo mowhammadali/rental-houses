@@ -6,7 +6,7 @@ import Login from './pages/Login/Login';
 import { Routes , Route } from 'react-router-dom';
 import { UseAuthOutputtype } from './types/commonTypes';
 
-const AuthContext = React.createContext<UseAuthOutputtype | null>(null);
+export const AuthContext = React.createContext<UseAuthOutputtype | null>(null);
 
 const App = (): JSX.Element => {
     const {isAuthenticated , loading} = useAuth();
