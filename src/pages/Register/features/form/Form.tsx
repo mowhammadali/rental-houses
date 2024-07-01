@@ -1,10 +1,11 @@
 import css from "./Form.module.css";
 import * as yup from "yup";
-import classNames from 'classnames'
+import classNames from 'classnames';
+import PulseLoader from "react-spinners/PulseLoader";
 import Notification from "../../../../components/common/notification/Notification";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
@@ -27,6 +28,7 @@ const Form = (): JSX.Element => {
     });
 
     const [visible , setVisible] = useState<boolean>(false);
+    const [isPending , setIsPending] = useState<boolean>(false);
     const [requestError , setRequestError] = useState<string>('');
     const [notificationVisibility , setNotificationVisibility] = useState<boolean>(false);
     const [messageType , setMessageType] = useState<string>('')
@@ -38,7 +40,7 @@ const Form = (): JSX.Element => {
             ...data
         }
         
-        reset();
+        setIsPending(true);
 
         try {
             const response = await registerUser(userData);
@@ -60,6 +62,8 @@ const Form = (): JSX.Element => {
 
             setMessageType('error');
             setNotificationVisibility(true);
+            setIsPending(false);
+            reset();
         }
     }
 
@@ -69,20 +73,27 @@ const Form = (): JSX.Element => {
             setCookie('access_token' , response.data.access_token);
             setCookie('refresh_token' , response.data.refresh_token);
 
-            setRequestError('ثبت نام با موفقیت انجام شد');
-            setMessageType('success');
-            setNotificationVisibility(true);
+            setTimeout(() => {
+                setRequestError('ثبت نام با موفقیت انجام شد');
+                setMessageType('success');
+                setNotificationVisibility(true);
+                setIsPending(false);
+                reset();
+            }, 1000);
+
 
             setTimeout(() => {
                 navigate('/');
                 window.location.reload();
-            }, 3000);
+            }, 2500);
         }
 
         catch (error) {
             setRequestError('خطایی رخ داده است');
             setMessageType('error');
             setNotificationVisibility(true);
+            setIsPending(false);
+            reset();
         }
     }
 
@@ -135,7 +146,21 @@ const Form = (): JSX.Element => {
                     ورود
                 </NavLink>
             </p>
-            <button className={css.registerButton} type="submit">ثبت نام</button>
+            <button className={css.registerButton} type="submit">
+                {
+                    isPending
+                    ?
+                    <PulseLoader
+                        color={'white'}
+                        loading={isPending}
+                        size={10}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                    />
+                    :
+                    'ثبت نام'
+                }
+            </button>
             <Notification duration={3000} message={requestError} setVisible={setNotificationVisibility}
                 visible={notificationVisibility} type={messageType}/>
         </form>

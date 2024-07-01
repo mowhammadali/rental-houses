@@ -1,6 +1,7 @@
 import css from './Form.module.css';
 import * as yup from "yup";
 import classNames from 'classnames'
+import PulseLoader from "react-spinners/PulseLoader";
 import Notification from '../../../../components/common/notification/Notification';
 import { AxiosError } from 'axios';
 import { setCookie } from 'react-use-cookie';
@@ -24,29 +25,37 @@ const Form = () => {
     });
     
     const [visible , setVisible] = useState<boolean>(false);
+    const [isPending , setIsPending] = useState<boolean>(false);
     const [requestError , setRequestError] = useState<string>('');
     const [notificationVisibility , setNotificationVisibility] = useState<boolean>(false);
     const [messageType , setMessageType] = useState<string>('')
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<Omit<RegisterInputstype , 'avatar' | 'name'>> = async (data) => {
+        setIsPending(true);
         try {
             const response = await loginUser(data);
 
             if (response.status === 200 || response.status === 201) {
                 setCookie('access_token' , response.data.access_token);
                 setCookie('refresh_token' , response.data.refresh_token);
-                setRequestError('خوش آمدید')
-                setMessageType('success');
-                setNotificationVisibility(true);
+                
+                setTimeout(() => {
+                    setRequestError('خوش آمدید')
+                    setMessageType('success');
+                    setNotificationVisibility(true);
+                    setIsPending(false);
+                    reset();
+                }, 1000);
 
                 setTimeout(() => {
                     navigate('/');
                     window.location.reload();
-                }, 3000);
+                }, 2500);
             }
         }
         catch (error) {
+            reset();
             const err = error as AxiosError;
             const status: number | undefined = err?.response?.status;
             
@@ -57,9 +66,8 @@ const Form = () => {
 
             setMessageType('error');
             setNotificationVisibility(true);
+            setIsPending(false);
         }
-        
-        reset();
     }
 
     return (
@@ -96,7 +104,21 @@ const Form = () => {
                     ثبت نام
                 </NavLink>
             </p>
-            <button className={css.registerButton} type="submit">ورود</button>
+            <button className={css.registerButton} type="submit">
+                {
+                    isPending
+                    ?
+                    <PulseLoader
+                        color={'white'}
+                        loading={isPending}
+                        size={10}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                    />
+                    :
+                    'ورود'
+                }
+            </button>
             <Notification duration={3000} message={requestError} setVisible={setNotificationVisibility}
                 visible={notificationVisibility} type={messageType}/>
         </form>
