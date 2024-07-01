@@ -1,0 +1,38 @@
+@import '../../../styles/mixin';
+@import '../../../styles/variables';
+
+.notificationWrapper {
+    @include boxModel (null , 50px , 6px 10px , null , transparent) {
+        min-width: 300px;
+        max-width: 400px;
+        position: absolute;
+        top: 20px;
+        font-size: 14px;
+        box-shadow: $light-mode-secondary-box-shadow
+    };
+    @include flexBox (row , space-between , center , null);
+    transition: all 0.4s ease-in-out;
+}
+
+.visible {
+    transform: translateX(0);
+    right: 20px;
+}
+
+.invisible {
+    transform: translateX(100%);
+    right: -20px;
+
+}
+
+.notificationIcon {
+    font-size: 22px;
+}
+
+.errorIcon {
+    color: $red-500;
+}
+
+.successIcon {
+    color: $emerald-500;
+}

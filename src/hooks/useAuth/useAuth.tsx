@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { AccountApi } from '../api/axiosConfig';
-import { UseAuthOutputtype } from '../types/commonTypes';
+import { AccountApi } from '../../api/axiosConfig'; 
+import { UseAuthOutputtype } from '../../types/commonTypes';
 import { getCookie } from 'react-use-cookie';
 
 const useAuth = (): UseAuthOutputtype => {

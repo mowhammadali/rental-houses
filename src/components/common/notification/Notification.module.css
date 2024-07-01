@@ -1,0 +1,38 @@
+.notificationWrapper {
+  height: 50px;
+  padding: 6px 10px;
+  background-color: transparent;
+  min-width: 300px;
+  max-width: 400px;
+  position: absolute;
+  top: 20px;
+  font-size: 14px;
+  box-shadow: 1px 1px 3px 1px #f2f2f2, -1px -1px 3px 1px #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.visible {
+  transform: translateX(0);
+  right: 20px;
+}
+
+.invisible {
+  transform: translateX(100%);
+  right: -20px;
+}
+
+.notificationIcon {
+  font-size: 22px;
+}
+
+.errorIcon {
+  color: #ef4444;
+}
+
+.successIcon {
+  color: #10b981;
+}/*# sourceMappingURL=Notification.module.css.map */

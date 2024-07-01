@@ -1,6 +1,8 @@
 import css from './Form.module.css';
 import * as yup from "yup";
 import classNames from 'classnames'
+import Notification from '../../../../components/common/notification/Notification';
+import { AxiosError } from 'axios';
 import { setCookie } from 'react-use-cookie';
 import { useState } from 'react';
 import { NavLink , useNavigate } from 'react-router-dom';
@@ -22,6 +24,9 @@ const Form = () => {
     });
     
     const [visible , setVisible] = useState<boolean>(false);
+    const [requestError , setRequestError] = useState<string>('');
+    const [notificationVisibility , setNotificationVisibility] = useState<boolean>(false);
+    const [messageType , setMessageType] = useState<string>('')
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<Omit<RegisterInputstype , 'avatar' | 'name'>> = async (data) => {
@@ -31,12 +36,27 @@ const Form = () => {
             if (response.status === 200 || response.status === 201) {
                 setCookie('access_token' , response.data.access_token);
                 setCookie('refresh_token' , response.data.refresh_token);
-                navigate('/');
-                window.location.reload();
+                setRequestError('خوش آمدید')
+                setMessageType('success');
+                setNotificationVisibility(true);
+
+                setTimeout(() => {
+                    navigate('/');
+                    window.location.reload();
+                }, 3000);
             }
         }
         catch (error) {
-            console.log(error);
+            const err = error as AxiosError;
+            const status: number | undefined = err?.response?.status;
+            
+            if (status === 404) setRequestError('درخواست مورد نظر یافت نشد');
+            else if (status === 400) setRequestError('درخواست ارسالی از سوی سرویس دهنده قابل اجرا نیست');
+            else if (status === 401) setRequestError('ایمیل یا رمز عبور اشتباه است');
+            else setRequestError('خطایی رخ داده است');
+
+            setMessageType('error');
+            setNotificationVisibility(true);
         }
         
         reset();
@@ -77,6 +97,8 @@ const Form = () => {
                 </NavLink>
             </p>
             <button className={css.registerButton} type="submit">ورود</button>
+            <Notification duration={3000} message={requestError} setVisible={setNotificationVisibility}
+                visible={notificationVisibility} type={messageType}/>
         </form>
     );
 };

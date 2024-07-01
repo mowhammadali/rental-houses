@@ -1,5 +1,5 @@
 import React from 'react'
-import useAuth from './hooks/useAuth';
+import useAuth from './hooks/useAuth/useAuth';
 import Home from './pages/Home/Home';
 import Form from './pages/Register/features/form/Form';
 import Login from './pages/Login/Login';

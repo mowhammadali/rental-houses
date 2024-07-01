@@ -1,6 +1,7 @@
 import css from "./Form.module.css";
 import * as yup from "yup";
 import classNames from 'classnames'
+import Notification from "../../../../components/common/notification/Notification";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form"
@@ -11,6 +12,7 @@ import { loginUser, registerUser } from "../../../../api/requests";
 import { RegisterInputstype } from "../../../../types/commonTypes";
 import { setCookie } from 'react-use-cookie';
 import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
 
 const schema = yup.object().shape({
     name: yup.string().required('لطفا یک نام کاربری وارد کنید'),
@@ -25,6 +27,9 @@ const Form = (): JSX.Element => {
     });
 
     const [visible , setVisible] = useState<boolean>(false);
+    const [requestError , setRequestError] = useState<string>('');
+    const [notificationVisibility , setNotificationVisibility] = useState<boolean>(false);
+    const [messageType , setMessageType] = useState<string>('')
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler <Omit<RegisterInputstype , 'avatar'>> = async (data) => {
@@ -44,8 +49,17 @@ const Form = (): JSX.Element => {
                 });
             } 
         }
+
         catch (error) {
-            console.log(error);
+            const err = error as AxiosError;
+            const status: number | undefined = err?.response?.status;
+
+            if (status === 404) setRequestError('درخواست مورد نظر یافت نشد');
+            else if (status === 400) setRequestError('درخواست ارسالی از سوی سرویس دهنده قابل اجرا نیست');
+            else setRequestError('خطایی رخ داده است');
+
+            setMessageType('error');
+            setNotificationVisibility(true);
         }
     }
 
@@ -54,10 +68,21 @@ const Form = (): JSX.Element => {
             const response = await loginUser(userData);
             setCookie('access_token' , response.data.access_token);
             setCookie('refresh_token' , response.data.refresh_token);
-            navigate('/');
+
+            setRequestError('ثبت نام با موفقیت انجام شد');
+            setMessageType('success');
+            setNotificationVisibility(true);
+
+            setTimeout(() => {
+                navigate('/');
+                window.location.reload();
+            }, 3000);
         }
+
         catch (error) {
-            console.log(error);
+            setRequestError('خطایی رخ داده است');
+            setMessageType('error');
+            setNotificationVisibility(true);
         }
     }
 
@@ -111,6 +136,8 @@ const Form = (): JSX.Element => {
                 </NavLink>
             </p>
             <button className={css.registerButton} type="submit">ثبت نام</button>
+            <Notification duration={3000} message={requestError} setVisible={setNotificationVisibility}
+                visible={notificationVisibility} type={messageType}/>
         </form>
     );
 };
