@@ -1,0 +1,65 @@
+@import '../../../styles/mixin';
+@import '../../../styles/variables';
+
+.menuContainer {
+    @include boxModel(230px , auto , 20px , null , white);
+    position: absolute;
+    top: 45px;
+    border-radius: 10px;
+    box-shadow: $light-mode-secondary-box-shadow;
+    z-index: 10;
+    transform: translateX(46%);
+
+    .header {
+        @include flexBox(row , space-between , center , null);
+        padding-bottom: 20px;
+        border-bottom: 1px solid $very-light-color;
+    }
+
+    .userIcon {
+        font-size: 30px;
+        color: $light-mode-secondary-text-color;
+    }
+
+    .userName {
+        user-select: none;
+    }
+
+    .list {
+        @include flexBox(column , null , flex-start , null);
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .list li {
+        @include boxModel(100% , null , 10px , null , null);
+        @include flexBox(row , null , center , 10px);
+        border-radius: 12px;
+        cursor: pointer;
+        list-style-type: none;
+        text-decoration: none;
+        user-select: none;
+    }
+
+    .list li:hover {
+        background-color: $base-main-color;
+    }
+
+    .list li:nth-last-child(1):hover {
+        background-color: $red-500;
+    }
+
+    .list li:hover .listIcon , .list li:hover .navigate {
+        color: white;
+    }
+
+    .listIcon {
+        font-size: 24px;
+        color: $slate-500;
+    }
+
+    .navigate {
+        text-decoration: none;
+        color: $light-mode-secondary-text-color;
+    }
+}

@@ -8,8 +8,8 @@ type NotificationPropsType = {
     duration: number,
     message: string,
     type: string,
-    setVisible: React.Dispatch<React.SetStateAction<boolean>>,
     visible: boolean,
+    setVisible: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 const Notification  = ({duration , message , setVisible , visible , type}: NotificationPropsType):JSX.Element => {

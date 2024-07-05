@@ -19,6 +19,24 @@
         @include textStyles(1rem, null, $light-mode-secondary-text-color);
     }
 
+    .avatar {
+        @include flexBox(row , center , center , null);
+        @include boxModel(35px , 35px , null , null , $light-mode-primary-shadow-color);
+        position: relative;
+        border-radius: 50%;
+    }
+
+    .fakeContainer {
+        @include boxModel(100% , 100% , null , null , #ff000000);
+        position: absolute;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    
+    .avatarIcon {
+        color: $gray-400;
+    }
+
     @include media("XS", false) {
         justify-content: space-between;
 

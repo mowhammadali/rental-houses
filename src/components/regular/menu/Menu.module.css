@@ -1,0 +1,68 @@
+.menuContainer {
+  width: 230px;
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  position: absolute;
+  top: 45px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 1px #f2f2f2, -1px -1px 3px 1px #f2f2f2;
+  z-index: 10;
+  transform: translateX(46%);
+}
+.menuContainer .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(165, 165, 165, 0.4941176471);
+}
+.menuContainer .userIcon {
+  font-size: 30px;
+  color: #535b66;
+}
+.menuContainer .userName {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.menuContainer .list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 10px;
+}
+.menuContainer .list li {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.menuContainer .list li:hover {
+  background-color: #14b8a6;
+}
+.menuContainer .list li:nth-last-child(1):hover {
+  background-color: #ef4444;
+}
+.menuContainer .list li:hover .listIcon, .menuContainer .list li:hover .navigate {
+  color: white;
+}
+.menuContainer .listIcon {
+  font-size: 24px;
+  color: #64748b;
+}
+.menuContainer .navigate {
+  text-decoration: none;
+  color: #535b66;
+}/*# sourceMappingURL=Menu.module.css.map */
