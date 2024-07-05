@@ -15,9 +15,18 @@
 
     @include flexBox(column, null, null, null);
 
+    .header {
+        @include flexBox(row , null , center , 20px);
+        margin: 0 auto 20px auto;
+    }
+
+    .villasanIcon {
+        width: fit-content;
+        cursor: pointer;
+    }
+
     .title {
         color: $light-mode-primary-text-color;
-        margin: 0 auto 20px auto;
     }
 
     .fields {

@@ -1,13 +1,26 @@
-import {forwardRef} from 'react'
 import css from './Menu.module.css';
-import { NavLink } from 'react-router-dom';
+import {forwardRef} from 'react'
+import { useNavigate } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { IoWalletOutline } from "react-icons/io5";
 import { IoPower } from "react-icons/io5";
+import { removeCookie } from 'react-use-cookie';
 
 const Menu = forwardRef<HTMLDivElement>((props , ref): JSX.Element => {
+    const navigate = useNavigate();
+
+    const navigation = (url: string): void => {
+        if (url === 'exit') {
+            removeCookie('access_token');
+            removeCookie('refresh_token');
+            window.location.reload();
+            return;
+        }
+        navigate(url);
+    }
+
     return (
         <div className={css.menuContainer} ref={ref}>
             <header className={css.header}>
@@ -15,21 +28,21 @@ const Menu = forwardRef<HTMLDivElement>((props , ref): JSX.Element => {
                 <p className={css.userName}>محمد علی مرادخانی</p>
             </header>
             <ul className={css.list}>
-                <li>
+                <li onClick={() => navigation('/')}>
                     <BiUser className={css.listIcon}/>
-                    <NavLink to='/' className={css.navigate}>حساب کاربری</NavLink>
+                    <p className={css.navigate}>حساب کاربری</p>
                 </li>
-                <li>
+                <li onClick={() => navigation('/')}>
                     <MdOutlinePostAdd className={css.listIcon}/>
-                    <NavLink to='/' className={css.navigate}>میزبان شوید</NavLink>
+                    <p className={css.navigate}>میزبان شوید</p>
                 </li>
-                <li>
+                <li onClick={() => navigation('/')}>
                     <IoWalletOutline className={css.listIcon}/>
-                    <NavLink to='/' className={css.navigate}>کیف پول</NavLink>
+                    <p className={css.navigate}>کیف پول</p>
                 </li>
-                <li>
+                <li onClick={() => navigation('exit')}>
                     <IoPower className={css.listIcon}/>
-                    <NavLink to='/' className={css.navigate}>خروج</NavLink>
+                    <p className={css.navigate}>خروج</p>
                 </li>
             </ul>
         </div>

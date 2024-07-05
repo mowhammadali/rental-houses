@@ -9,9 +9,20 @@
   display: flex;
   flex-direction: column;
 }
+.formContainer .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin: 0 auto 20px auto;
+}
+.formContainer .villasanIcon {
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
 .formContainer .title {
   color: #0f172a;
-  margin: 0 auto 20px auto;
 }
 .formContainer .fields {
   display: flex;

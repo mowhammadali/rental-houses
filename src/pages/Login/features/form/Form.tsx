@@ -72,7 +72,11 @@ const Form = () => {
 
     return (
         <form className={css.formContainer} onSubmit={handleSubmit(onSubmit)}>
-            <h1 className={css.title}>ورود</h1>
+            <div className={css.header}>
+                <h1 className={css.title}>ورود</h1>
+                <img src="./assets/icons/main/dark-villasan-64.png" className={css.villasanIcon} alt="villasan icon"
+                    onClick={() => navigate('/')}/>
+            </div>
             <div className={css.fields}>
                 <section className={css.fieldContainer}>
                     <label className={css.fieldLable}>ایمیل</label>
