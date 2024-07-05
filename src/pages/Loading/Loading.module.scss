@@ -1,0 +1,7 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.wrapper {
+    @include boxModel(100% , 100vh , null , null , $light-mode-primary-bg-color);
+    position: relative;
+}
