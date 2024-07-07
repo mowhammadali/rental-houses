@@ -2,15 +2,18 @@ import SearchBox from "./components/searchBox/SearchBox";
 import css from "./Navbar.module.css";
 import Menu from "../../../../components/regular/menu/Menu";
 import { useContext, useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink , useLocation } from "react-router-dom";
 import { TbDoorEnter } from "react-icons/tb";
 import { FaUserAlt } from "react-icons/fa";
 import { AuthContext } from "../../../../App";
 
 const Navbar = (): JSX.Element => {
+    const location = useLocation();
     const menuRef = useRef<HTMLDivElement | null>(null);
     const authenticationInfo = useContext(AuthContext);
     const [isMenuOpening, setIsMenuOpening] = useState<boolean>(false);
+
+    const verified: boolean = location.state?.verified ? true : authenticationInfo?.isAuthenticated ? true : false;
 
     const handleClickOutside = (event: MouseEvent): void => {
         const target = event.target as HTMLElement | null;
@@ -38,10 +41,14 @@ const Navbar = (): JSX.Element => {
             document.removeEventListener("mousedown", handleClickOutside);
     });
 
+    useEffect(() => {
+        return () => window.history.replaceState({}, '');
+    } , [])
+
     return (
         <div className={css.navbarContainer}>
             <SearchBox />
-            {authenticationInfo?.isAuthenticated ? (
+            {verified ? (
                 <div className={css.avatar} id="open-home-menu-container">
                     <div
                         className={css.fakeContainer}

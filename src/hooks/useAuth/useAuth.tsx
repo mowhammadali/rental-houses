@@ -25,7 +25,9 @@ const useAuth = (): UseAuthOutputtype => {
             setIsAuthenticated(false);
         }
         finally {
-            setLoading(false);
+            setTimeout(() => {
+                setLoading(false);
+            }, 800);
         }
     }
 

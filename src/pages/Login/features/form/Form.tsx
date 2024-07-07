@@ -49,8 +49,7 @@ const Form = () => {
                 }, 1000);
 
                 setTimeout(() => {
-                    navigate('/');
-                    window.location.reload();
+                    navigate('/' , {state: {verified: true}});
                 }, 2500);
             }
         }
