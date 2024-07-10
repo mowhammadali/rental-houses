@@ -1,4 +1,4 @@
-import SearchBox from "./components/searchBox/SearchBox";
+import SearchBox from "../../components/searchBox/SearchBox";
 import css from "./Navbar.module.css";
 import Menu from "../../../../components/regular/menu/Menu";
 import ThemeMenu from "../../../../components/regular/dark-mode-menu/ThemeMenu";
