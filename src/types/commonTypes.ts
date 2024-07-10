@@ -11,3 +11,8 @@ export type RegisterInputstype = {
     password: string,
     avatar: string,
 }
+
+export type ThemeCustomHooksType = {
+    theme: string;
+    setTheme: React.Dispatch<React.SetStateAction<string>>;
+}
