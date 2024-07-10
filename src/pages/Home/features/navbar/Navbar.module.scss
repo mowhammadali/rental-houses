@@ -5,6 +5,10 @@
     @include flexBox(null, space-between, center, null);
     @include boxModel(100%, 80px, 0 2rem, null, $light-mode-primary-bg-color);
     box-shadow: $light-mode-primary-box-shadow;
+    
+    .leftSide {
+        @include flexBox(row, center , center, 20px);
+    }
 
     .navigateContainer {
         @include flexBox(null, null, center, 6px);
@@ -19,7 +23,7 @@
         @include textStyles(1rem, null, $light-mode-secondary-text-color);
     }
 
-    .avatar {
+    .avatar , .themeContainr {
         @include flexBox(row , center , center , null);
         @include boxModel(35px , 35px , null , null , $light-mode-primary-shadow-color);
         position: relative;
@@ -33,8 +37,12 @@
         cursor: pointer;
     }
     
-    .avatarIcon {
+    .avatarIcon , .themeIcon {
         color: $gray-400;
+    }
+
+    .themeContainr {
+        position: relative;
     }
 
     @include media("XS", false) {

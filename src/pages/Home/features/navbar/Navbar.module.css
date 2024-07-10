@@ -8,6 +8,13 @@
   background-color: #fff;
   box-shadow: 1px 2px 2px #f2f2f2;
 }
+.navbarContainer .leftSide {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 .navbarContainer .navigateContainer {
   display: flex;
   align-items: center;
@@ -22,7 +29,7 @@
   font-size: 1rem;
   color: #535b66;
 }
-.navbarContainer .avatar {
+.navbarContainer .avatar, .navbarContainer .themeContainr {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -41,8 +48,11 @@
   border-radius: 50%;
   cursor: pointer;
 }
-.navbarContainer .avatarIcon {
+.navbarContainer .avatarIcon, .navbarContainer .themeIcon {
   color: #9ca3af;
+}
+.navbarContainer .themeContainr {
+  position: relative;
 }
 @media (max-width: 576px) {
   .navbarContainer {

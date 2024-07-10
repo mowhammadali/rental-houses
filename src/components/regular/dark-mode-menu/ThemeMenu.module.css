@@ -1,0 +1,47 @@
+.themeMenuContainer {
+  width: 140px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  position: absolute;
+  top: 45px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 1px #f2f2f2, -1px -1px 3px 1px #f2f2f2;
+  z-index: 10;
+  transform: translateX(46%);
+}
+.themeMenuContainer .list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.themeMenuContainer .list li {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.themeMenuContainer .list li:hover {
+  background-color: #f6f6f6;
+}
+.themeMenuContainer .listIcon {
+  font-size: 20px;
+  color: #64748b;
+}
+.themeMenuContainer .list p {
+  text-decoration: none;
+  color: #535b66;
+}
+.themeMenuContainer .active {
+  color: #14b8a6 !important;
+}/*# sourceMappingURL=ThemeMenu.module.css.map */
