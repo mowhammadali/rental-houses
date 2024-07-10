@@ -2,8 +2,8 @@
 @import "../../../../styles/mixin";
 
 .navbarContainer {
-    @include flexBox(null, space-around, center, null);
-    @include boxModel(100%, 80px, 0 1rem, null, $light-mode-primary-bg-color);
+    @include flexBox(null, space-between, center, null);
+    @include boxModel(100%, 80px, 0 2rem, null, $light-mode-primary-bg-color);
     box-shadow: $light-mode-primary-box-shadow;
 
     .navigateContainer {
@@ -38,7 +38,7 @@
     }
 
     @include media("XS", false) {
-        justify-content: space-between;
+        padding: 0 1rem;
 
         .navigateIcon {
             font-size: 1rem;
@@ -46,6 +46,12 @@
 
         .navigate {
             font-size: 0.8rem;
+        }
+    }
+
+    @include media("S", false) {
+        .avatar , .navigateContainer {
+            display: none;
         }
     }
 }

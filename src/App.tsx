@@ -11,7 +11,7 @@ export const AuthContext = React.createContext<UseAuthOutputtype | null>(null);
 
 const App = (): JSX.Element => {
     const {isAuthenticated , loading} = useAuth();
-
+    
     if (loading) return <Loading />
 
     return (
