@@ -1,0 +1,18 @@
+import React from 'react'
+import useTheme from '../../hooks/useTheme/useTheme';
+import { Outlet } from 'react-router-dom';
+import { ThemeCustomHooksType } from '../../types/commonTypes';
+
+export const ThemeContext = React.createContext<ThemeCustomHooksType | null>(null);
+
+const Layout = () => {
+    const {theme , setTheme} = useTheme();
+
+    return (
+        <ThemeContext.Provider value={{theme , setTheme}}>
+            <Outlet />
+        </ThemeContext.Provider>
+    )
+}
+
+export default Layout;

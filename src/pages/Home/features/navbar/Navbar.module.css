@@ -1,12 +1,19 @@
 .navbarContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 80px;
-  padding: 0 1rem;
+  padding: 0 2rem;
   background-color: #fff;
   box-shadow: 1px 2px 2px #f2f2f2;
+}
+.navbarContainer .leftSide {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 .navbarContainer .navigateContainer {
   display: flex;
@@ -22,7 +29,7 @@
   font-size: 1rem;
   color: #535b66;
 }
-.navbarContainer .avatar {
+.navbarContainer .avatar, .navbarContainer .themeContainr {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -41,17 +48,25 @@
   border-radius: 50%;
   cursor: pointer;
 }
-.navbarContainer .avatarIcon {
+.navbarContainer .avatarIcon, .navbarContainer .themeIcon {
   color: #9ca3af;
+}
+.navbarContainer .themeContainr {
+  position: relative;
 }
 @media (max-width: 576px) {
   .navbarContainer {
-    justify-content: space-between;
+    padding: 0 1rem;
   }
   .navbarContainer .navigateIcon {
     font-size: 1rem;
   }
   .navbarContainer .navigate {
     font-size: 0.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .navbarContainer .avatar, .navbarContainer .navigateContainer {
+    display: none;
   }
 }/*# sourceMappingURL=Navbar.module.css.map */

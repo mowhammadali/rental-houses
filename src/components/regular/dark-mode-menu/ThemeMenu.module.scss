@@ -1,0 +1,45 @@
+@import "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.themeMenuContainer {
+    @include boxModel(140px, auto, 10px, null, white);
+    position: absolute;
+    top: 45px;
+    border-radius: 10px;
+    box-shadow: $light-mode-secondary-box-shadow;
+    z-index: 10;
+    transform: translateX(46%);
+
+    .list {
+        @include flexBox(column, null, flex-start, null);
+        width: 100%;
+    }
+
+    .list li {
+        @include boxModel(100%, null, 10px, null, null);
+        @include flexBox(row, null, center, 10px);
+        border-radius: 12px;
+        cursor: pointer;
+        list-style-type: none;
+        text-decoration: none;
+        user-select: none;
+
+        &:hover {
+            background-color: $light-mode-secondary-bg-color;
+        }
+    }
+
+    .listIcon {
+        font-size: 20px;
+        color: $slate-500;
+    }
+
+    .list p {
+        text-decoration: none;
+        color: $light-mode-secondary-text-color;
+    }
+
+    .active {
+        color: $base-main-color !important;
+    }
+}

@@ -83,8 +83,7 @@ const Form = (): JSX.Element => {
 
 
             setTimeout(() => {
-                navigate('/');
-                window.location.reload();
+                navigate('/' , {state: {verified: true}});
             }, 2500);
         }
 
