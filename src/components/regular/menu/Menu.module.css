@@ -65,4 +65,18 @@
 .menuContainer .navigate {
   text-decoration: none;
   color: #535b66;
+}
+
+[data-theme=dark] .menuContainer {
+  background-color: #181c25;
+  box-shadow: 1px 1px 3px 1px #202531, -1px -1px 3px 1px #202531;
+}
+[data-theme=dark] .userIcon {
+  color: #535b66;
+}
+[data-theme=dark] .userName {
+  color: #d7d7d7;
+}
+[data-theme=dark] .listIcon, [data-theme=dark] .navigate {
+  color: #d7d7d7;
 }/*# sourceMappingURL=Menu.module.css.map */

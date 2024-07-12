@@ -3,18 +3,20 @@ $base-red-500-color: #ef4444;
 $light-mode-primary-bg-color: #fff;
 $light-mode-secondary-bg-color: #f6f6f6;
 $light-mode-primary-shadow-color: #f2f2f2;
-$light-mode-primary-text-color: #0f172a;
+$light-mode-primary-text-color: #181c25;
 $light-mode-secondary-text-color: #535b66;
-$dark-mode-primary-bg-color: #0f172a;
+$dark-mode-primary-bg-color: #181c25;
 $dark-mode-secondary-bg-color: #535b66;
+$dark-mode-primary-shadow-color: #202531;
 $dark-mode-primary-text-color: #fff;
-$dark-mode-secondary-text-color: #f6f6f6;
+$dark-mode-secondary-text-color: #d7d7d7;
 
 $very-light-color: #a5a5a57e;
 
 $gray-400: #9ca3af;
 $gray-300: #d1d5db;
 
+$slate-800: #1e293b;
 $slate-600: #475569;
 $slate-500: #64748b;
 
@@ -27,6 +29,8 @@ $emerald-500: #10b981;
 
 $light-mode-primary-box-shadow: 1px 2px 2px $light-mode-primary-shadow-color;
 $light-mode-secondary-box-shadow: 1px 1px 3px 1px $light-mode-primary-shadow-color , -1px -1px 3px 1px $light-mode-primary-shadow-color;
+$dark-mode-primary-box-shadow: 1px 2px 2px $dark-mode-primary-shadow-color;
+$dark-mode-secondary-box-shadow: 1px 1px 3px 1px $dark-mode-primary-shadow-color , -1px -1px 3px 1px $dark-mode-primary-shadow-color;
 
 $extra-small: 576px;
 $small: 768px;

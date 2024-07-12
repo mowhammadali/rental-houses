@@ -15,7 +15,7 @@ const SearchBox = (): JSX.Element => {
                 <IoIosSearch className={css.searchIcon}/>
             </button>
             <input type='text' className={css.searchField} value={searchContent}
-                placeholder='جستجوی شهر..' onChange={changeSearchContent}/>
+                placeholder='جستجوی شهر...' onChange={changeSearchContent}/>
         </section>
     )
 }

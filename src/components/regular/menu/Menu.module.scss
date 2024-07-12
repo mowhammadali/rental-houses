@@ -63,3 +63,22 @@
         color: $light-mode-secondary-text-color;
     }
 }
+
+[data-theme="dark"] {
+    .menuContainer {
+        background-color: $dark-mode-primary-bg-color;
+        box-shadow: $dark-mode-secondary-box-shadow;
+    }
+
+    .userIcon {
+        color: $dark-mode-secondary-bg-color;
+    }
+
+    .userName {
+        color: $dark-mode-secondary-text-color;
+    }
+
+    .listIcon , .navigate {
+        color: $dark-mode-secondary-text-color;
+    }
+}

@@ -62,4 +62,17 @@
   .searchWrapper .searchIcon {
     font-size: 1rem;
   }
+}
+
+[data-theme=dark] .searchWrapper, [data-theme=dark] .searchField {
+  background-color: #181c25;
+}
+[data-theme=dark] .searchWrapper {
+  box-shadow: none;
+}
+[data-theme=dark] .searchField::-moz-placeholder {
+  color: #d7d7d7;
+}
+[data-theme=dark] .searchField, [data-theme=dark] .searchField::placeholder, [data-theme=dark] .searchIcon {
+  color: #d7d7d7;
 }/*# sourceMappingURL=SearchBox.module.css.map */
