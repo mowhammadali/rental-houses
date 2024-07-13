@@ -3,7 +3,7 @@ import * as yup from "yup";
 import classNames from 'classnames';
 import PulseLoader from "react-spinners/PulseLoader";
 import Notification from "../../../../components/common/notification/Notification";
-import { useState } from "react";
+import { useState , useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,6 +11,7 @@ import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { loginUser, registerUser } from "../../../../api/requests";
 import { RegisterInputstype } from "../../../../types/commonTypes";
+import { ThemeContext } from "../../../Layout/Layout";
 import { setCookie } from 'react-use-cookie';
 import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
@@ -23,6 +24,9 @@ const schema = yup.object().shape({
 });
 
 const Form = (): JSX.Element => {
+    const themeParams = useContext(ThemeContext);
+    const isDark: boolean | undefined = themeParams?.isDark;
+
     const { register , handleSubmit , formState: {errors} , reset } = useForm <Omit<RegisterInputstype , 'avatar'>>({
         resolver: yupResolver(schema),
     });
@@ -100,7 +104,7 @@ const Form = (): JSX.Element => {
         <form className={css.formContainer} onSubmit={handleSubmit(onSubmit)}>
             <div className={css.header}>
                 <h1 className={css.title}>ثبت نام</h1>
-                <img src="./assets/icons/main/dark-villasan-64.png" className={css.villasanIcon} alt="villasan icon"
+                <img src={isDark ? "./assets/icons/main/light-villasan-64.png" : "./assets/icons/main/dark-villasan-64.png"} className={css.villasanIcon} alt="villasan icon"
                     onClick={() => navigate('/')}/>
             </div>
             <div className={css.fields}>

@@ -47,7 +47,7 @@
     .field {
         width: 100%;
         margin-top: 6px;
-        @include registerField(false);
+        @include registerField(false , $gray-300 , $light-mode-secondary-text-color);
     }
 
     .passwordWrapper {
@@ -65,7 +65,7 @@
         left: 12px;
         cursor: pointer;
         transform: translateY(-50%);
-        color: $slate-600
+        color: $slate-600;
     }
 
     .fieldErrorMessage {
@@ -89,7 +89,7 @@
     }
 
     .registerButton {
-        @include commonButton(100%, 42px);
+        @include commonButton(100%, 42px , $light-mode-primary-bg-color , $dark-mode-primary-bg-color);
     }
 
     @include media("XS", false) {
@@ -102,6 +102,32 @@
         .fieldLable,
         .field {
             font-size: 0.8rem;
+        }
+    }
+}
+
+[data-theme="dark"] {
+    .formContainer {
+        box-shadow: $dark-mode-secondary-box-shadow;
+
+        .title , .fieldLable {
+            color: $dark-mode-secondary-text-color;
+        }
+
+        .field {
+            @include registerField(false , $gray-300 , $dark-mode-secondary-text-color);
+        }
+    
+        .eyeIcon , .signup {
+            color: $dark-mode-secondary-text-color;
+        }
+
+        .signupLink {
+            color: $emerald-500;
+        }
+
+        .registerButton {
+            @include commonButton(100%, 42px , $dark-mode-primary-bg-color , $gray-400);
         }
     }
 }

@@ -15,4 +15,5 @@ export type RegisterInputstype = {
 export type ThemeCustomHooksType = {
     theme: string;
     setTheme: React.Dispatch<React.SetStateAction<string>>;
+    isDark: boolean;
 }

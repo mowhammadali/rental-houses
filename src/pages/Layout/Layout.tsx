@@ -6,10 +6,10 @@ import { ThemeCustomHooksType } from '../../types/commonTypes';
 export const ThemeContext = React.createContext<ThemeCustomHooksType | null>(null);
 
 const Layout = () => {
-    const {theme , setTheme} = useTheme();
+    const {theme , setTheme , isDark} = useTheme();
 
     return (
-        <ThemeContext.Provider value={{theme , setTheme}}>
+        <ThemeContext.Provider value={{theme , setTheme , isDark}}>
             <Outlet />
         </ThemeContext.Provider>
     )

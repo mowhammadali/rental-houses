@@ -67,17 +67,18 @@
     @content;
 }
 
-@mixin registerField($forPlaceholder) {
+@mixin registerField($forPlaceholder , $borderColor , $color) {
     @if ($forPlaceholder) {
-        color: $slate-600;
+        color: $color;
     } @else {
         height: 38px;
         padding: 0 8px;
         font-size: 1rem;
         outline: none;
-        border: 1px solid $gray-300;
+        background-color: transparent;
+        border: 1px solid $borderColor;
         border-radius: 10px;
-        color: $slate-600;
+        color: $color;
     }
 }
 
@@ -90,13 +91,13 @@
     opacity: 0;
 }
 
-@mixin commonButton ($width , $height) {
+@mixin commonButton ($width , $height , $color , $bgColor) {
     width: $width;
     height: $height;
     outline: none;
     border: none;
     cursor: pointer;
     border-radius: 8px;
-    color: $light-mode-primary-bg-color;
-    background-color: $dark-mode-primary-bg-color;
+    color: $color;
+    background-color: $bgColor;
 }
