@@ -46,9 +46,10 @@
   padding: 0 8px;
   font-size: 1rem;
   outline: none;
+  background-color: transparent;
   border: 1px solid #d1d5db;
   border-radius: 10px;
-  color: #475569;
+  color: #535b66;
 }
 .formContainer .passwordWrapper {
   margin-top: 6px;
@@ -125,4 +126,37 @@
   .formContainer .rules {
     font-size: 0.8rem;
   }
+}
+
+[data-theme=dark] .formContainer {
+  box-shadow: 1px 1px 6px 2px #202531, -1px -1px 6px 2px #202531;
+}
+[data-theme=dark] .formContainer .title, [data-theme=dark] .formContainer .fieldLable {
+  color: #d7d7d7;
+}
+[data-theme=dark] .formContainer .field {
+  height: 38px;
+  padding: 0 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  color: #d7d7d7;
+}
+[data-theme=dark] .formContainer .eyeIcon, [data-theme=dark] .formContainer .rules, [data-theme=dark] .formContainer .entrance {
+  color: #d7d7d7;
+}
+[data-theme=dark] .formContainer .rulesLink, [data-theme=dark] .formContainer .entranceLink {
+  color: #10b981;
+}
+[data-theme=dark] .formContainer .registerButton {
+  width: 100%;
+  height: 42px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #181c25;
+  background-color: #9ca3af;
 }/*# sourceMappingURL=Form.module.css.map */

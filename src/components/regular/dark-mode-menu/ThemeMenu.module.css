@@ -48,7 +48,7 @@
 
 [data-theme=dark] .themeMenuContainer {
   background-color: #181c25;
-  box-shadow: 1px 1px 3px 1px #202531, -1px -1px 3px 1px #202531;
+  box-shadow: 1px 1px 6px 2px #202531, -1px -1px 6px 2px #202531;
 }
 [data-theme=dark] .listIcon, [data-theme=dark] .list p {
   color: #d7d7d7;

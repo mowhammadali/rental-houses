@@ -14,6 +14,10 @@
     transition: all 0.4s ease-in-out;
 }
 
+.message {
+    color: $dark-mode-primary-bg-color;
+}
+
 .visible {
     transform: translateX(0);
     right: 20px;
@@ -35,4 +39,14 @@
 
 .successIcon {
     color: $emerald-500;
+}
+
+[data-theme="dark"] {
+    .notificationWrapper {
+        box-shadow: $dark-mode-secondary-box-shadow;
+
+        .message {
+            color: $dark-mode-secondary-text-color;
+        }
+    }
 }

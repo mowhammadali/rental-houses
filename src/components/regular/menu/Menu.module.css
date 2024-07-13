@@ -69,7 +69,7 @@
 
 [data-theme=dark] .menuContainer {
   background-color: #181c25;
-  box-shadow: 1px 1px 3px 1px #202531, -1px -1px 3px 1px #202531;
+  box-shadow: 1px 1px 6px 2px #202531, -1px -1px 6px 2px #202531;
 }
 [data-theme=dark] .userIcon {
   color: #535b66;

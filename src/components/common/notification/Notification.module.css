@@ -15,6 +15,10 @@
   transition: all 0.4s ease-in-out;
 }
 
+.message {
+  color: #181c25;
+}
+
 .visible {
   transform: translateX(0);
   right: 20px;
@@ -35,4 +39,11 @@
 
 .successIcon {
   color: #10b981;
+}
+
+[data-theme=dark] .notificationWrapper {
+  box-shadow: 1px 1px 6px 2px #202531, -1px -1px 6px 2px #202531;
+}
+[data-theme=dark] .notificationWrapper .message {
+  color: #d7d7d7;
 }/*# sourceMappingURL=Notification.module.css.map */
