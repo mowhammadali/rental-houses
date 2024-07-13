@@ -63,3 +63,22 @@
         }
     }
 }
+
+[data-theme="dark"] { 
+    .navbarContainer {
+        background-color: $dark-mode-primary-bg-color;
+        box-shadow: $dark-mode-primary-box-shadow;
+    }
+
+    .avatar , .themeContainr {
+        background-color: $dark-mode-secondary-bg-color;
+    }
+
+    .avatarIcon , .themeIcon {
+        color: $dark-mode-secondary-text-color;
+    }
+
+    .navigateIcon , .navigate {
+        color: $dark-mode-secondary-text-color;
+    }
+}

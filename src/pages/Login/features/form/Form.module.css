@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 .formContainer .title {
-  color: #0f172a;
+  color: #181c25;
 }
 .formContainer .fields {
   display: flex;
@@ -37,7 +37,7 @@
 }
 .formContainer .fieldLable {
   margin-right: 4px;
-  color: #0f172a;
+  color: #181c25;
 }
 .formContainer .field {
   width: 100%;
@@ -100,7 +100,7 @@
   cursor: pointer;
   border-radius: 8px;
   color: #fff;
-  background-color: #0f172a;
+  background-color: #181c25;
 }
 @media (max-width: 576px) {
   .formContainer {

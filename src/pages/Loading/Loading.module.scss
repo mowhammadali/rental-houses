@@ -5,3 +5,9 @@
     @include boxModel(100% , 100vh , null , null , $light-mode-primary-bg-color);
     position: relative;
 }
+
+[data-theme="dark"] {
+    .wrapper {
+        background-color: $dark-mode-primary-bg-color;
+    }
+}

@@ -1,5 +1,5 @@
-@import "../../../../../../styles/variables";
-@import "../../../../../../styles/mixin";
+@import "../../../../styles/variables";
+@import "../../../../styles/mixin";
 
 .searchWrapper {
     @include flexBox(null, space-between, null, null);
@@ -58,5 +58,19 @@
         .searchIcon {
             font-size: 1rem;
         }
+    }
+}
+
+[data-theme="dark"] {
+    .searchWrapper , .searchField {
+        background-color: $dark-mode-primary-bg-color;
+    }
+
+    .searchWrapper {
+        box-shadow: none;
+    }
+
+    .searchField , .searchField::placeholder , .searchIcon {
+        color: $dark-mode-secondary-text-color;
     }
 }

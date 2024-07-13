@@ -16,15 +16,15 @@ const ThemeMenu = forwardRef<HTMLDivElement>((props , ref): JSX.Element => {
             <ul className={css.list}>
                 <li onClick={() => themeParams?.setTheme('light')}>
                     <BsFillSunFill className={classNames(css.listIcon , theme === 'light' && css.active)}/>
-                    <p className={classNames(css.navigate , theme === 'light' && css.active)}>روشن</p>
+                    <p className={classNames(css.themeName , theme === 'light' && css.active)}>روشن</p>
                 </li>
                 <li onClick={() => themeParams?.setTheme('dark')}>
                     <FaMoon className={classNames(css.listIcon , theme === 'dark' && css.active)}/>
-                    <p className={classNames(css.navigate , theme === 'dark' && css.active)}>تاریک</p>
+                    <p className={classNames(css.themeName , theme === 'dark' && css.active)}>تاریک</p>
                 </li>
                 <li onClick={() => themeParams?.setTheme('system')}>
                     <RiComputerFill className={classNames(css.listIcon , theme === 'system' && css.active)}/>
-                    <p className={classNames(css.navigate , theme === 'system' && css.active)}>سیستم</p>
+                    <p className={classNames(css.themeName , theme === 'system' && css.active)}>سیستم</p>
                 </li>
             </ul>
         </div>

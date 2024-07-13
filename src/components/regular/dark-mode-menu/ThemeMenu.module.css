@@ -38,10 +38,21 @@
   font-size: 20px;
   color: #64748b;
 }
-.themeMenuContainer .list p {
+.themeMenuContainer .themeName {
   text-decoration: none;
   color: #535b66;
 }
 .themeMenuContainer .active {
   color: #14b8a6 !important;
+}
+
+[data-theme=dark] .themeMenuContainer {
+  background-color: #181c25;
+  box-shadow: 1px 1px 3px 1px #202531, -1px -1px 3px 1px #202531;
+}
+[data-theme=dark] .listIcon, [data-theme=dark] .list p {
+  color: #d7d7d7;
+}
+[data-theme=dark] .list li:hover .listIcon, [data-theme=dark] .list li:hover .themeName {
+  color: #1e293b;
 }/*# sourceMappingURL=ThemeMenu.module.css.map */

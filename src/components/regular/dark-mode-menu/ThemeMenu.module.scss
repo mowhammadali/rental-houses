@@ -34,12 +34,29 @@
         color: $slate-500;
     }
 
-    .list p {
+    .themeName {
         text-decoration: none;
         color: $light-mode-secondary-text-color;
     }
 
     .active {
         color: $base-main-color !important;
+    }
+}
+
+[data-theme="dark"] {
+    .themeMenuContainer {
+        background-color: $dark-mode-primary-bg-color;
+        box-shadow: $dark-mode-secondary-box-shadow;
+    }
+
+    .listIcon , .list p {
+        color: $dark-mode-secondary-text-color;
+    }
+
+    .list li:hover {
+        .listIcon , .themeName {
+            color: $slate-800;
+        }
     }
 }

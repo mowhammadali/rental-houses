@@ -1,5 +1,6 @@
 import HashLoader from "react-spinners/HashLoader";
 import css from './Loading.module.css'
+import useTheme from "../../hooks/useTheme/useTheme";
 import { CSSProperties } from "react";
 
 const cssOverride: CSSProperties = {
@@ -10,6 +11,8 @@ const cssOverride: CSSProperties = {
   };
 
 const Loading = (): JSX.Element => {
+    useTheme();
+
     return (
         <div className={css.wrapper}>
             <HashLoader
