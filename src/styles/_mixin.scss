@@ -91,9 +91,14 @@
     opacity: 0;
 }
 
-@mixin commonButton ($width , $height , $color , $bgColor) {
+@mixin commonButton ($width , $height , $fontSize , $color , $bgColor) {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
     width: $width;
     height: $height;
+    font-size: $fontSize;
     outline: none;
     border: none;
     cursor: pointer;

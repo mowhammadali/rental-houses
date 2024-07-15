@@ -1,0 +1,43 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixin";
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slideImage {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 0 0 40px 40px;
+}
+
+.slideInfo {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    @include flexBox(column, null, flex-start, 20px);
+}
+
+.titleWrapper {
+    padding: 5px 20px;
+    border-radius: 0 40px 40px 40px;
+    background-color: #ffffffb4;
+}
+
+.slideTitle {
+    @include textStyles(40px, bold, $base-main-color);
+}
+
+.slideInfoButton {
+    margin-right: 10px;
+    @include commonButton(
+        160px,
+        45px,
+        26px,
+        $light-mode-secondary-text-color,
+        $light-mode-secondary-bg-color
+    );
+}

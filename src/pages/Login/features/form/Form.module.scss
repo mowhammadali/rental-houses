@@ -89,7 +89,7 @@
     }
 
     .registerButton {
-        @include commonButton(100%, 42px , $light-mode-primary-bg-color , $dark-mode-primary-bg-color);
+        @include commonButton(100%, 42px , null , $light-mode-primary-bg-color , $dark-mode-primary-bg-color);
     }
 
     @include media("XS", false) {
@@ -127,7 +127,7 @@
         }
 
         .registerButton {
-            @include commonButton(100%, 42px , $dark-mode-primary-bg-color , $gray-400);
+            @include commonButton(100%, 42px , null , $dark-mode-primary-bg-color , $gray-400);
         }
     }
 }

@@ -105,6 +105,10 @@
   color: #1e40af;
 }
 .formContainer .registerButton {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
   width: 100%;
   height: 42px;
   outline: none;
@@ -151,6 +155,10 @@
   color: #10b981;
 }
 [data-theme=dark] .formContainer .registerButton {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
   width: 100%;
   height: 42px;
   outline: none;
