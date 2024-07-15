@@ -6,7 +6,7 @@
   position: absolute;
   top: 45px;
   border-radius: 10px;
-  box-shadow: 1px 1px 3px 1px #f2f2f2, -1px -1px 3px 1px #f2f2f2;
+  border: 1px solid #cbd5e1;
   z-index: 10;
   transform: translateX(46%);
 }
@@ -48,7 +48,7 @@
 
 [data-theme=dark] .themeMenuContainer {
   background-color: #181c25;
-  box-shadow: 1px 1px 6px 2px #202531, -1px -1px 6px 2px #202531;
+  border: 1px solid #64748b;
 }
 [data-theme=dark] .listIcon, [data-theme=dark] .list p {
   color: #d7d7d7;

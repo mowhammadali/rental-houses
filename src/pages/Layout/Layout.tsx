@@ -2,6 +2,7 @@ import React from 'react'
 import useTheme from '../../hooks/useTheme/useTheme';
 import { Outlet } from 'react-router-dom';
 import { ThemeCustomHooksType } from '../../types/commonTypes';
+import 'swiper/css';
 
 export const ThemeContext = React.createContext<ThemeCustomHooksType | null>(null);
 

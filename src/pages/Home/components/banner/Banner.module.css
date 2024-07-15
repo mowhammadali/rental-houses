@@ -1,0 +1,23 @@
+.bannerContainer {
+  width: 100%;
+  height: 750px;
+}
+.bannerContainer .mySwiper {
+  height: 100%;
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .bannerContainer {
+    height: 500px;
+  }
+}
+@media (max-width: 768px) {
+  .bannerContainer {
+    height: 400px;
+  }
+}
+@media (max-width: 576px) {
+  .bannerContainer {
+    height: 250px;
+  }
+}/*# sourceMappingURL=Banner.module.css.map */

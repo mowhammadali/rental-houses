@@ -1,0 +1,6 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixin';
+
+.headerContainer {
+    @include flexBox(column , null , center , 20px);
+}

@@ -6,7 +6,7 @@
     position: absolute;
     top: 45px;
     border-radius: 10px;
-    box-shadow: $light-mode-secondary-box-shadow;
+    border: 1px solid $slate-300;
     z-index: 10;
     transform: translateX(46%);
 
@@ -47,7 +47,7 @@
 [data-theme="dark"] {
     .themeMenuContainer {
         background-color: $dark-mode-primary-bg-color;
-        box-shadow: $dark-mode-secondary-box-shadow;
+        border: 1px solid $slate-500;
     }
 
     .listIcon , .list p {
