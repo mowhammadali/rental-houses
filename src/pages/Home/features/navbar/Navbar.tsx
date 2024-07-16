@@ -2,14 +2,18 @@ import SearchBox from "../../components/searchBox/SearchBox";
 import css from "./Navbar.module.css";
 import Menu from "../../../../components/regular/menu/Menu";
 import ThemeMenu from "../../../../components/regular/dark-mode-menu/ThemeMenu";
+import { AuthContext } from "../../../../App";
+import { ThemeContext } from "../../../Layout/Layout";
 import { useContext, useEffect, useRef, useState } from "react";
 import { NavLink , useLocation } from "react-router-dom";
 import { TbDoorEnter } from "react-icons/tb";
 import { FaUserAlt } from "react-icons/fa";
 import { BsFillSunFill } from "react-icons/bs";
-import { AuthContext } from "../../../../App";
+import { FaMoon } from "react-icons/fa";
 
 const Navbar = (): JSX.Element => {
+    const themeParams = useContext(ThemeContext);
+    const isDark = themeParams?.isDark;
     const location = useLocation();
     const menuRef = useRef<HTMLDivElement | null>(null);
     const themeMenuRef = useRef<HTMLDivElement | null>(null);
@@ -80,7 +84,13 @@ const Navbar = (): JSX.Element => {
                         className={css.fakeContainer}
                         onClick={() => setIsThemeMenuOpened(bool => !bool)}   
                     ></div>
-                    <BsFillSunFill className={css.themeIcon} id="open-theme-menu"/>
+                    {
+                        isDark
+                        ?
+                        <BsFillSunFill className={css.themeIcon} id="open-theme-menu"/>
+                        :
+                        <FaMoon className={css.themeIcon} />
+                    }
                     {isThemeMenuOpened && <ThemeMenu ref={themeMenuRef}/>}
                 </div>
                 {verified ? (

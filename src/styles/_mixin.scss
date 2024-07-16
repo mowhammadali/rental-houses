@@ -1,9 +1,19 @@
 @import "./variables";
 
 @mixin media($size, $hasInterval) {
-    @if ($size == "XS") {
-        @media (max-width: $extra-small) {
+    @if ($size == "XXS") {
+        @media (max-width: $ultra-small) {
             @content;
+        }
+    } @else if ($size == "XS") {
+        @if ($hasInterval) {
+            @media (max-width: $extra-small) and (min-width: ($ultra-small + 1)) {
+                @content;
+            }
+        } @else {
+            @media (max-width: $extra-small) {
+                @content;
+            }
         }
     } @else if ($size == "S") {
         @if ($hasInterval) {
@@ -67,7 +77,7 @@
     @content;
 }
 
-@mixin registerField($forPlaceholder , $borderColor , $color) {
+@mixin registerField($forPlaceholder, $borderColor, $color) {
     @if ($forPlaceholder) {
         color: $color;
     } @else {
@@ -91,7 +101,7 @@
     opacity: 0;
 }
 
-@mixin commonButton ($width , $height , $fontSize , $color , $bgColor) {
+@mixin commonButton($width, $height, $fontSize, $color, $bgColor) {
     display: flex;
     align-items: center;
     gap: 5px;
