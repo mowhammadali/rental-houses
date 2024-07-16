@@ -75,7 +75,6 @@
 
 [data-theme=dark] .navbarContainer {
   background-color: #181c25;
-  box-shadow: 1px 2px 2px #202531;
 }
 [data-theme=dark] .avatar, [data-theme=dark] .themeContainr {
   background-color: #535b66;
