@@ -2,5 +2,6 @@
 @import '../../../../styles/mixin';
 
 .headerContainer {
-    @include flexBox(column , null , center , 40px);
+    @include flexBox(column , null , center , 80px);
+    margin-bottom: 40px;
 }
