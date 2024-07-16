@@ -1,0 +1,52 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixin';
+
+.bottomMenuContainer {
+    @include boxModel(100% , 60px , null , null , $light-mode-primary-bg-color);
+    display: none;
+    position: fixed;
+    bottom: 0;
+    z-index: 9;
+    border-top: 1px solid $slate-300;
+
+    .menuNavigation {
+        @include flexBox(column , center , center , 5px);
+        padding: 6px 0;
+        cursor: pointer;
+    }
+
+    .navigationIcon {
+        @include textStyles(16x , 500 , $light-mode-secondary-text-color);
+    }
+
+    .navigationTitle {
+        @include textStyles(12px , 500 , $light-mode-secondary-text-color);
+    }
+
+    @include media('S' , false) {
+        @include gridCss(repeat(4 , 1fr) , repeat(1 , 1fr) , 20px , null);
+    }
+
+    @include media('XXS' , false) {
+        grid-column-gap: 5px;
+
+        .navigationIcon {
+            font-size: 14px;
+        }
+
+        .navigationTitle {
+            font-size: 10px;
+        }
+    }
+}
+
+[data-theme="dark"] {
+    .bottomMenuContainer {
+        background-color: $dark-mode-primary-bg-color;
+        border-top-color: $slate-700;
+    }
+
+    .navigationIcon , .navigationTitle {
+        color: $dark-mode-secondary-text-color;
+    }
+}
