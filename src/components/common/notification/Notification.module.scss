@@ -8,7 +8,8 @@
         position: absolute;
         top: 20px;
         font-size: 14px;
-        box-shadow: $light-mode-secondary-box-shadow
+        box-shadow: $light-mode-secondary-box-shadow;
+        z-index: 8;
     };
     @include flexBox (row , space-between , center , null);
     transition: all 0.4s ease-in-out;

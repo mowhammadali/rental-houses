@@ -1,0 +1,90 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixin';
+
+.mainContainer {
+    @include flexBox(column , null , center , 30px);
+    width: 100%;
+    padding: 20px 40px;
+    user-select: none;
+
+    .title {
+        text-align: center;
+    }
+
+    .caption {
+        @include flexBox(column , null , flex-start , 10px);
+    }
+
+    .caption h4 {
+        color: $light-mode-primary-text-color;
+    }
+
+    .caption p {
+        @include textStyles(15px , 400 , $light-mode-secondary-text-color);
+        line-height: 1.8rem;
+    }
+
+    .navigation {
+        margin-top: 40px;
+    }
+
+    .navigation button {
+        @include commonButton(350px , 45px , 16px , $dark-mode-secondary-text-color , $light-mode-secondary-text-color);
+        margin-top: 12px;
+    }
+    
+    .navigation p {
+        text-align: center;
+        @include textStyles(14px , 400 , $light-mode-secondary-text-color);
+    }
+
+    .link {
+        text-decoration: none;
+        color: $blue-800;
+    }
+
+    @include media('XS' , false) {
+        .navigation button {
+            width: 300px;
+        }
+    }
+
+    @include media('XXS' , false) {
+        padding: 20px;
+
+        .navigation button {
+            width: 250px;
+        }
+
+        .navigation p {
+            font-size: 12px;
+        }
+    }
+}
+
+[data-theme="dark"] {
+    .title  {
+        color: $dark-mode-primary-text-color;
+    }
+
+    .caption h4 {
+        color: $dark-mode-primary-text-color;
+    }
+
+    .caption p {
+        color: $dark-mode-secondary-text-color;
+    }
+    
+    .navigation p {
+        color: $dark-mode-secondary-text-color;
+    }
+
+    .link {
+        color: $base-main-color;
+    }
+
+    .navigation button {
+        color: $dark-mode-primary-bg-color;
+        background-color: $dark-mode-secondary-text-color;
+    }
+}
