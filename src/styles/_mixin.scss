@@ -68,6 +68,15 @@
     @content;
 }
 
+@mixin gridCss($template-columns , $template-rows , $column-gap , $row-gap) {
+    display: grid;
+    grid-template-columns: $template-columns;
+    grid-template-rows: $template-rows;
+    grid-column-gap: $column-gap;
+    grid-row-gap: $row-gap;
+    @content;
+}
+
 @mixin boxModel($width, $height, $padding, $margin, $bgColor) {
     width: $width;
     height: $height;

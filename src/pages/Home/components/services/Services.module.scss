@@ -2,10 +2,9 @@
  @import '../../../../styles/mixin';
 
  .servicesContainer {
-    display: grid;
-    grid-template-columns: repeat(8 , 1fr);
-    grid-template-rows: repeat(1 , 1fr);
-    justify-items: center;
+    @include gridCss(repeat(8 , 1fr) , repeat(1 , 1fr) , null ,null) {
+        justify-items: center;
+    };
     width: 100%;
     padding: 0 20px;
 
