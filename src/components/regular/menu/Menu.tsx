@@ -1,20 +1,24 @@
 import css from './Menu.module.css';
 import {forwardRef} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { FaUserCircle } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { IoWalletOutline } from "react-icons/io5";
 import { IoPower } from "react-icons/io5";
 import { removeCookie } from 'react-use-cookie';
+import { signOut } from '../../../features/auth/authSlice';
 
 const Menu = forwardRef<HTMLDivElement>((props , ref): JSX.Element => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const navigation = (url: string): void => {
         if (url === 'exit') {
             removeCookie('access_token');
             removeCookie('refresh_token');
+            dispatch(signOut());
             window.location.reload();
             return;
         }

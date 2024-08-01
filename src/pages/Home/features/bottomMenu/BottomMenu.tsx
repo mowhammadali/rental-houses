@@ -1,17 +1,19 @@
 import css from './BottomMenu.module.css';
 import { useContext } from 'react';
-import { useLocation , useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { GrFavorite } from "react-icons/gr";
 import { AiOutlineHome } from "react-icons/ai";
 import { IoWalletOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
 import { AuthContext } from '../../../../App';
+import { RootStateType } from '../../../../store/rootReducer';
 
 const BottomMenu = (): JSX.Element => {
-    const location = useLocation();
     const navigate = useNavigate();
     const authenticationInfo = useContext(AuthContext);
-    const verified: boolean = location.state?.verified ? true : authenticationInfo?.isAuthenticated ? true : false;
+    const isVerified = useSelector((state: RootStateType) => state.authState.isVerified);
+    const verified: boolean = isVerified ? true : authenticationInfo?.isAuthenticated ? true : false;
 
     const navigation = (route: string , title: string) => {
         navigate(route , {state: {title: title}})
