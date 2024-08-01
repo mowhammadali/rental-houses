@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import PulseLoader from "react-spinners/PulseLoader";
 import Notification from "../../../../components/common/notification/Notification";
 import { useState , useContext } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -15,6 +16,7 @@ import { ThemeContext } from "../../../Layout/Layout";
 import { setCookie } from 'react-use-cookie';
 import { useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
+import { signIn } from "../../../../features/auth/authSlice";
 
 const schema = yup.object().shape({
     name: yup.string().required('لطفا یک نام کاربری وارد کنید'),
@@ -26,6 +28,8 @@ const schema = yup.object().shape({
 const Form = (): JSX.Element => {
     const themeParams = useContext(ThemeContext);
     const isDark: boolean | undefined = themeParams?.isDark;
+
+    const dispatch = useDispatch();
 
     const { register , handleSubmit , formState: {errors} , reset } = useForm <Omit<RegisterInputstype , 'avatar'>>({
         resolver: yupResolver(schema),
@@ -82,6 +86,7 @@ const Form = (): JSX.Element => {
                 setMessageType('success');
                 setNotificationVisibility(true);
                 setIsPending(false);
+                dispatch(signIn());
                 reset();
             }, 1000);
 

@@ -2,26 +2,29 @@ import SearchBox from "../../components/searchBox/SearchBox";
 import css from "./Navbar.module.css";
 import Menu from "../../../../components/regular/menu/Menu";
 import ThemeMenu from "../../../../components/regular/dark-mode-menu/ThemeMenu";
+import { useSelector } from "react-redux";
 import { AuthContext } from "../../../../App";
 import { ThemeContext } from "../../../Layout/Layout";
 import { useContext, useEffect, useRef, useState } from "react";
-import { NavLink , useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { TbDoorEnter } from "react-icons/tb";
 import { FaUserAlt } from "react-icons/fa";
 import { BsFillSunFill } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
+import { RootStateType } from "../../../../store/rootReducer";
 
 const Navbar = (): JSX.Element => {
     const themeParams = useContext(ThemeContext);
     const isDark = themeParams?.isDark;
-    const location = useLocation();
     const menuRef = useRef<HTMLDivElement | null>(null);
     const themeMenuRef = useRef<HTMLDivElement | null>(null);
     const authenticationInfo = useContext(AuthContext);
     const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
     const [isThemeMenuOpened , setIsThemeMenuOpened] = useState<boolean>(false);
+    const isVerified = useSelector((state: RootStateType) => state.authState.isVerified);
+    
 
-    const verified: boolean = location.state?.verified ? true : authenticationInfo?.isAuthenticated ? true : false;
+    const verified: boolean = isVerified ? true : authenticationInfo?.isAuthenticated ? true : false;
 
     const handleClickOutsideOfAvatar = (event: MouseEvent): void => {
         const target = event.target as HTMLElement | null;

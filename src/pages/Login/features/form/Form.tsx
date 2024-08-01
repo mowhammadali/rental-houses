@@ -3,6 +3,7 @@ import * as yup from "yup";
 import classNames from 'classnames'
 import PulseLoader from "react-spinners/PulseLoader";
 import Notification from '../../../../components/common/notification/Notification';
+import { useDispatch } from 'react-redux';
 import { AxiosError } from 'axios';
 import { setCookie } from 'react-use-cookie';
 import { useState , useContext } from 'react';
@@ -14,6 +15,7 @@ import { FaRegEyeSlash } from "react-icons/fa6";
 import { RegisterInputstype } from '../../../../types/commonTypes';
 import { loginUser } from '../../../../api/requests';
 import { ThemeContext } from '../../../Layout/Layout';
+import { signIn } from '../../../../features/auth/authSlice';
 
 const schema = yup.object().shape({
     email: yup.string().required('لطفا ایمیل خود را وارد کنید').email('ایمیل نامعتبر است'),
@@ -24,6 +26,8 @@ const Form = () => {
     const themeParams = useContext(ThemeContext);
     const isDark: boolean | undefined = themeParams?.isDark;
 
+    const dispatch = useDispatch();
+    
     const { register , handleSubmit , formState: {errors} , reset } = useForm<Omit<RegisterInputstype , 'avatar' | 'name'>>({
         resolver: yupResolver(schema),
     });
@@ -49,6 +53,7 @@ const Form = () => {
                     setMessageType('success');
                     setNotificationVisibility(true);
                     setIsPending(false);
+                    dispatch(signIn());
                     reset();
                 }, 1000);
 
