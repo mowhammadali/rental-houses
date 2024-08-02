@@ -22,6 +22,7 @@
   },
   "include": [
     "src",
-    "declaration.d.ts"
+    "declaration.d.ts",
+    "./src/global.d.ts"
   ]
 }

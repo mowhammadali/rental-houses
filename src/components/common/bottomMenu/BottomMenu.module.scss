@@ -1,5 +1,5 @@
-@import '../../../../styles/variables';
-@import '../../../../styles/mixin';
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
 
 .bottomMenuContainer {
     @include boxModel(100% , 60px , null , null , $light-mode-primary-bg-color);

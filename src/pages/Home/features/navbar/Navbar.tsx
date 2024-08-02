@@ -2,6 +2,7 @@ import SearchBox from "../../components/searchBox/SearchBox";
 import css from "./Navbar.module.css";
 import Menu from "../../../../components/regular/menu/Menu";
 import ThemeMenu from "../../../../components/regular/dark-mode-menu/ThemeMenu";
+import useUserData from "../../../../hooks/useData/useUserData";
 import { useSelector } from "react-redux";
 import { AuthContext } from "../../../../App";
 import { ThemeContext } from "../../../Layout/Layout";
@@ -12,6 +13,8 @@ import { FaUserAlt } from "react-icons/fa";
 import { BsFillSunFill } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
 import { RootStateType } from "../../../../store/rootReducer";
+import { AxiosError } from "axios";
+import { getCookie } from 'react-use-cookie';
 
 const Navbar = (): JSX.Element => {
     const themeParams = useContext(ThemeContext);
@@ -22,8 +25,15 @@ const Navbar = (): JSX.Element => {
     const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
     const [isThemeMenuOpened , setIsThemeMenuOpened] = useState<boolean>(false);
     const isVerified = useSelector((state: RootStateType) => state.authState.isVerified);
+    const accessToken = getCookie('access_token');
     
-
+    const query = useUserData(accessToken);
+    const { data , isError , isLoading , error } = query;
+    
+    if (isError) {
+        console.log((error as AxiosError)?.message)
+    }
+    
     const verified: boolean = isVerified ? true : authenticationInfo?.isAuthenticated ? true : false;
 
     const handleClickOutsideOfAvatar = (event: MouseEvent): void => {
@@ -103,7 +113,8 @@ const Navbar = (): JSX.Element => {
                             onClick={() => setIsMenuOpened(bool => !bool)}
                         ></div>
                         <FaUserAlt className={css.avatarIcon} id="open-home-menu" />
-                        {isMenuOpened && <Menu ref={menuRef} />}
+                        {isMenuOpened && <Menu userName={data?.name} ref={menuRef} 
+                            isLoading={isLoading} isError={isError}/>}
                     </div>
                 ) : (
                     <NavLink to="/register" className={css.navigateContainer}>

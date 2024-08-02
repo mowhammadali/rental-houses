@@ -6,8 +6,8 @@ import { GrFavorite } from "react-icons/gr";
 import { AiOutlineHome } from "react-icons/ai";
 import { IoWalletOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
-import { AuthContext } from '../../../../App';
-import { RootStateType } from '../../../../store/rootReducer';
+import { AuthContext } from '../../../App';
+import { RootStateType } from '../../../store/rootReducer';
 
 const BottomMenu = (): JSX.Element => {
     const navigate = useNavigate();
