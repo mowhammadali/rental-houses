@@ -1,0 +1,146 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixin';
+
+.accountContainer {
+    user-select: none;
+
+    .header {
+        @include flexBox(column , center , flex-start , 20px);
+        padding: 30px 30px;
+        border-bottom: 1px solid $slate-300;
+    }
+    
+    .firstRow {
+        @include flexBox(row , flex-start , center , 30px);
+    }
+
+    .hi {
+        @include textStyles(20px , 300 , $slate-400);
+    }
+    
+    .secondRow {
+        padding: 4px 8px;
+        border-radius: 10px;
+        opacity: 0.9;
+        background-color: $light-mode-secondary-bg-color;
+    }
+    
+    .emailVerified {
+        @include flexBox(row , center , center , 6px);
+        font-size: 12px;
+        color: $emerald-500;
+    }
+
+    .userIconContainer {
+        @include flexBox(row , center , center , 30px);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $light-mode-secondary-bg-color;
+    }
+
+    .userIcon {
+        @include textStyles(30px , null , $slate-600);
+        color: $light-mode-secondary-text-color;
+    }
+
+    .userName {
+        color: $light-mode-secondary-text-color;
+    }
+
+    .body {
+        padding: 0px 30px 80px 0;
+    }
+
+    .list {
+        width: 100%;
+    }
+
+    .item {
+        @include flexBox(column , center , flex-start , 30px);
+        border-bottom: 1px solid $slate-300;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .itemTitle {
+        color: $slate-400;
+    }
+    
+    .navigation {
+        @include flexBox(row , flex-start , center , 30px);
+        cursor: pointer;
+    }
+    
+    .navigationIconContainer {
+        @include flexBox(row , cneter , center , null);
+        padding: 10px;
+        border-radius: 10px;
+        background-color: $slate-200;
+    }
+
+    .navigationIcon {
+        font-size: 24px;
+        color: $slate-500;
+    }
+    
+    .navigationInfo {
+        @include flexBox(column , center , flex-start , 5px);
+    }
+
+    .navigationTitle {
+        color: $slate-500;
+    }
+
+    .navigationDetails {
+        font-size: 14px;
+        color: $slate-400;
+    }
+
+    .exit {
+        border-bottom: none;
+        color: $red-400 !important;
+    }
+}
+
+[data-theme="dark"] {
+    .header {
+        border-bottom: 1px solid $slate-500;
+    }
+
+    .secondRow {
+        background-color: $dark-mode-secondary-bg-color;
+    }
+
+    .userIconContainer {
+        background-color: $dark-mode-secondary-bg-color;
+    }
+
+    .userIcon {
+        color: $light-mode-secondary-bg-color;
+    }
+
+    .item {
+        border-bottom: 1px solid $slate-500;
+    }
+
+    .itemTitle {
+        color: $slate-600;
+    }
+
+    .navigationIconContainer {
+        background-color: $slate-800;
+    }
+
+    .navigationIcon {
+        color: $slate-200;
+    }
+
+    .navigationTitle {
+        color: $slate-400;
+    }
+
+    .navigationDetails {
+        color: $slate-600;
+    }
+}

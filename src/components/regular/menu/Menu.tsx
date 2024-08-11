@@ -10,7 +10,13 @@ import { IoPower } from "react-icons/io5";
 import { removeCookie } from 'react-use-cookie';
 import { signOut } from '../../../features/auth/authSlice';
 
-const Menu = forwardRef<HTMLDivElement>((props , ref): JSX.Element => {
+type PropsType = {
+    userName: string,
+    isLoading: boolean,
+    isError: boolean,
+}
+
+const Menu = forwardRef<HTMLDivElement , PropsType>((props , ref): JSX.Element => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -29,7 +35,19 @@ const Menu = forwardRef<HTMLDivElement>((props , ref): JSX.Element => {
         <div className={css.menuContainer} ref={ref}>
             <header className={css.header}>
                 <FaUserCircle className={css.userIcon}/>
-                <p className={css.userName}>محمد علی مرادخانی</p>
+                <p className={css.userName}>
+                    {
+                        props?.isLoading
+                        ?
+                        'در حال دریافت نام کاربری'
+                        :
+                        props?.isError
+                        ?
+                        'ناشناس'
+                        :
+                        props?.userName
+                    }
+                </p>
             </header>
             <ul className={css.list}>
                 <li onClick={() => navigation('/')}>

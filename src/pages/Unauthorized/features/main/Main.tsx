@@ -1,9 +1,20 @@
 import css from './Main.module.css';
-import { NavLink , useNavigate , useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { NavLink , useNavigate , useLocation, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AuthContext } from '../../../../App';
+import { RootStateType } from '../../../../store/rootReducer';
 
-const Main = (): JSX.Element => {
+const Main = (): JSX.Element | null => {
     const navigate = useNavigate();
     const location = useLocation();
+    const authenticationInfo = useContext(AuthContext);
+    const isVerified = useSelector((state: RootStateType) => state.authState.isVerified);
+    const verified: boolean = isVerified ? true : authenticationInfo?.isAuthenticated ? true : false;
+    
+    if (verified) {
+        return <Navigate to="/" replace/>
+    }     
 
     return (
         <div className={css.mainContainer}>

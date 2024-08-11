@@ -1,6 +1,7 @@
 import { AccountApi } from "./axiosConfig";
 import { RegisterInputstype } from "../types/commonTypes";
 import { AxiosError } from "axios";
+
 // register user
 export const registerUser = async (userData: RegisterInputstype) => {
     try {
@@ -17,6 +18,22 @@ export const registerUser = async (userData: RegisterInputstype) => {
 export const loginUser = async (userData: Omit<RegisterInputstype , 'avatar' | 'name'>) => {
     try {
         const response = await AccountApi.instance.post('auth/login' , userData);
+        return response;
+    }
+    catch (error) {
+        const err = error as AxiosError;
+        throw err;
+    }
+}
+
+// get user info
+export const getUserData = async (accessToken: string) => {
+    try {
+        const response = await AccountApi.instance.get('auth/profile' , {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            }
+        })
         return response;
     }
     catch (error) {
