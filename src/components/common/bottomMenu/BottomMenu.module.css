@@ -7,6 +7,9 @@
   bottom: 0;
   z-index: 9;
   border-top: 1px solid #cbd5e1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .bottomMenuContainer .menuNavigation {
   display: flex;

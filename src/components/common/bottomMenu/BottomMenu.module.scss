@@ -8,6 +8,7 @@
     bottom: 0;
     z-index: 9;
     border-top: 1px solid $slate-300;
+    user-select: none;
 
     .menuNavigation {
         @include flexBox(column , center , center , 5px);

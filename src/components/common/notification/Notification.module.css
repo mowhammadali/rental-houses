@@ -1,7 +1,7 @@
 .notificationWrapper {
   height: 50px;
   padding: 6px 10px;
-  background-color: transparent;
+  background-color: #fff;
   min-width: 300px;
   max-width: 400px;
   position: absolute;
@@ -43,6 +43,7 @@
 }
 
 [data-theme=dark] .notificationWrapper {
+  background-color: #181c25;
   box-shadow: 1px 1px 6px 2px #202531, -1px -1px 6px 2px #202531;
 }
 [data-theme=dark] .notificationWrapper .message {

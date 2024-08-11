@@ -2,6 +2,7 @@ import React from "react";
 import useUserData from "../../../../hooks/useData/useUserData";
 import css from "./MobileAccount.module.css";
 import classNames from "classnames";
+import Skeleton from 'react-loading-skeleton'
 import { getCookie , removeCookie } from "react-use-cookie";
 import { signOut } from "../../../../features/auth/authSlice";
 import { useDispatch } from "react-redux";
@@ -82,48 +83,77 @@ const MobileAccount = () => {
         <div className={css.accountContainer}>
             <header className={css.header}>
                 <div className={css.firstRow}>
-                    <span className={css.userIconContainer}>
-                        <BiUser className={css.userIcon} />
-                    </span>
-                    <h3 className={css.userName}>
-                        <span className={css.hi}>سلام،</span> {data?.name}
-                    </h3>
+                    {
+                        isLoading 
+                        ?
+                        <React.Fragment>
+                            <Skeleton width={50} height={50} circle/>
+                            <Skeleton width={140} height={30} borderRadius={8}/>
+                        </React.Fragment>
+                        :
+                        <React.Fragment>
+                            <span className={css.userIconContainer}>
+                                <BiUser className={css.userIcon} />
+                            </span>
+                            <h3 className={css.userName}>
+                                <span className={css.hi}>سلام،</span> {data?.name}
+                            </h3>
+                        </React.Fragment>
+                    }
                 </div>
-                <div className={css.secondRow}>
-                    <span className={css.emailVerified}>
-                        <IoMdCheckmark className={css.checkedIcon} />
-                        <p>ایمیل شما تایید شده است</p>
-                    </span>
-                </div>
+                {
+                    isLoading
+                    ?
+                    <Skeleton width={150} height={25} borderRadius={14}/>
+                    :
+                    <div className={css.secondRow}>
+                        <span className={css.emailVerified}>
+                            <IoMdCheckmark className={css.checkedIcon} />
+                            <p>ایمیل شما تایید شده است</p>
+                        </span>
+                    </div>
+                }
             </header>
-            <body className={css.body}>
+            <div className={css.body}>
                 <ul className={css.list}>
                     {list?.map((item, index) => {
                         const IconComponent = item?.icon;
 
                         return (
                             <li key={index} className={classNames(css.item , item?.isExit && css.exit)}>
-                                <p className={css.itemTitle}>{item?.title}</p>
-                                <div className={css.navigation} onClick={() => item?.path ? navigate(item?.path) : userSignOut()}>
-                                    <span
-                                        className={css.navigationIconContainer}
-                                    >
-                                    <IconComponent className={classNames(css.navigationIcon , item?.isExit && css.exit)}/>
-                                    </span>
-                                    <div className={css.navigationInfo}>
-                                        <h4 className={classNames(css.navigationTitle , item?.isExit && css.exit)}>
-                                            {item?.navigationTitle}
-                                        </h4>
-                                        <p className={css.navigationDetails}>
-                                            {item?.details}
-                                        </p>
+                                {
+                                    isLoading
+                                    ?
+                                    <Skeleton width={70} height={20} borderRadius={6}/>
+                                    :
+                                    <p className={css.itemTitle}>{item?.title}</p>
+                                }
+                                {
+                                    isLoading
+                                    ?
+                                    <Skeleton width={250} height={45} borderRadius={10}/>
+                                    :
+                                    <div className={css.navigation} onClick={() => item?.path ? navigate(item?.path) : userSignOut()}>
+                                        <span
+                                            className={css.navigationIconContainer}
+                                        >
+                                            <IconComponent className={classNames(css.navigationIcon , item?.isExit && css.exit)}/>
+                                        </span>
+                                        <div className={css.navigationInfo}>
+                                            <h4 className={classNames(css.navigationTitle , item?.isExit && css.exit)}>
+                                                {item?.navigationTitle}
+                                            </h4>
+                                            <p className={css.navigationDetails}>
+                                                {item?.details}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             </li>
                         );
                     })}
                 </ul>
-            </body>
+            </div>
         </div>
     );
 };

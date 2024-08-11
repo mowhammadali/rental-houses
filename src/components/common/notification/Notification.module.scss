@@ -2,7 +2,7 @@
 @import '../../../styles/variables';
 
 .notificationWrapper {
-    @include boxModel (null , 50px , 6px 10px , null , transparent) {
+    @include boxModel (null , 50px , 6px 10px , null , $light-mode-primary-bg-color) {
         min-width: 300px;
         max-width: 400px;
         position: absolute;
@@ -44,6 +44,7 @@
 
 [data-theme="dark"] {
     .notificationWrapper {
+        background-color: $dark-mode-primary-bg-color;
         box-shadow: $dark-mode-secondary-box-shadow;
 
         .message {
