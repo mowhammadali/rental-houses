@@ -1,3 +1,3 @@
 window.CONFIG = {
-    DEVELOPER_MODE: true,
+    DEVELOPER_MODE: false,
 };

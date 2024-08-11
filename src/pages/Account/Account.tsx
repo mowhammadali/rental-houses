@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MobileAccount from "./features/mobile-page/MobileAccount";
 
 const Account = (): JSX.Element => {
     const [screenSize , setScreenSize] = useState<number>(window.innerWidth);
@@ -13,7 +14,7 @@ const Account = (): JSX.Element => {
     
     if (screenSize > 768) return <div>desktop account</div>
 
-    return <div>mobile account</div>
+    return <MobileAccount />
 }
 
 export default Account;
