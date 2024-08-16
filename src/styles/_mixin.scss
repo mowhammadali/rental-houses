@@ -124,4 +124,5 @@
     border-radius: 8px;
     color: $color;
     background-color: $bgColor;
+    @content;
 }

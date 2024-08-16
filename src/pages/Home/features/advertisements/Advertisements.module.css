@@ -1,0 +1,18 @@
+.advertisementContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 0 150px;
+  margin-bottom: 80px;
+}
+@media (max-width: 768px) {
+  .advertisementContainer {
+    padding: 0 80px;
+  }
+}
+@media (max-width: 576px) {
+  .advertisementContainer {
+    padding: 0 30px;
+  }
+}/*# sourceMappingURL=Advertisements.module.css.map */

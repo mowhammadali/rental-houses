@@ -2,7 +2,7 @@ import axios from "axios";
 
 class ContentApi {
     private static _instance = axios.create({
-        baseURL: "https://6606fe26be53febb857efe71.mockapi.io/rent-house/v1/",
+        baseURL: "https://6606fe26be53febb857efe71.mockapi.io/villasun-rent-house/v1/",
         timeout: 8000,
         headers: {
             Accept: "application/json",

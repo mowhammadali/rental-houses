@@ -1,7 +1,8 @@
-import { AccountApi } from "./axiosConfig";
+import { AccountApi, ContentApi } from "./axiosConfig";
 import { RegisterInputstype } from "../types/commonTypes";
 import { AxiosError } from "axios";
 
+// *** Account Api ***
 // register user
 export const registerUser = async (userData: RegisterInputstype) => {
     try {
@@ -34,6 +35,19 @@ export const getUserData = async (accessToken: string) => {
                 Authorization: `Bearer ${accessToken}`,
             }
         })
+        return response;
+    }
+    catch (error) {
+        const err = error as AxiosError;
+        throw err;
+    }
+}
+
+// *** Content Api ***
+// get all advertisements
+export const getAllAdvertisements = async () => {
+    try {
+        const response = await ContentApi.instance.get('houses');
         return response;
     }
     catch (error) {
