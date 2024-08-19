@@ -6,6 +6,7 @@ const Advertisements = () => {
     const carousels = [
         {id: 1 , state: 'تهران' , title: 'ویلاهای اطراف تهران'},
         {id: 2 , state: 'شیراز' , title: 'اقامتگاه های شیراز'},
+        {id: 3 , state: 'گیلان' , title: 'اجاره ویلا در شهر های شمالی'},
     ];
 
     const query = useHouses();

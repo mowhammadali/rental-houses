@@ -50,6 +50,11 @@
   bottom: 6%;
   right: 6%;
 }
+@media (max-width: 1024px) {
+  .placesContainer {
+    padding: 0 100px;
+  }
+}
 @media (max-width: 768px) {
   .placesContainer {
     padding: 0 80px;

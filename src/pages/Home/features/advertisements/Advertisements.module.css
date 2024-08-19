@@ -6,6 +6,11 @@
   padding: 0 150px;
   margin-bottom: 80px;
 }
+@media (max-width: 1024px) {
+  .advertisementContainer {
+    padding: 0 100px;
+  }
+}
 @media (max-width: 768px) {
   .advertisementContainer {
     padding: 0 80px;
