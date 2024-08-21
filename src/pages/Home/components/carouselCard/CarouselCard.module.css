@@ -1,0 +1,127 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 10px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px 10px 6px 6px;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.detailsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.rateIcon {
+  font-size: 12px;
+  color: #eab308;
+}
+
+.rate {
+  font-size: 14px;
+  color: #535b66;
+}
+
+.capacityIcon {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.capacity {
+  font-size: 18px;
+  color: #535b66;
+}
+
+.locationIcon {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.location {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.oldPrice {
+  font-size: 10px;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.discount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 20px;
+  background-color: #f87171;
+  font-size: 10px;
+  color: #f6f6f6;
+  border-radius: 30px;
+}
+
+.price {
+  font-size: 14px;
+  color: #535b66;
+}
+
+.oneNight {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.likePost {
+  width: 30px;
+  height: 30px;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.filledHeartIcon {
+  color: #ef4444;
+}
+
+[data-theme=dark] .card {
+  border-color: #334155;
+}
+[data-theme=dark] .rate, [data-theme=dark] .capacity, [data-theme=dark] .price {
+  color: #fff;
+}
+[data-theme=dark] .location, [data-theme=dark] .oldPrice, [data-theme=dark] .oneNight {
+  color: #d7d7d7;
+}/*# sourceMappingURL=CarouselCard.module.css.map */

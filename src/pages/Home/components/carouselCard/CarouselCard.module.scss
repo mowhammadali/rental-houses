@@ -1,0 +1,99 @@
+@import "../../../../styles/mixin";
+@import "../../../../styles/variables";
+
+.card {
+    @include flexBox(column , space-between , flex-start , null);
+    @include boxModel(100% , 100% , 0px , null , null);
+    position: relative;
+    user-select: none;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+.cardImage {
+    width: 100%;
+    height:180px;
+    border-radius: 10px 10px 6px 6px;
+}
+
+.cardBody {
+    @include flexBox(column , space-between , flex-start , null);
+    @include boxModel(100% , 100% , 10px , null , null);
+    cursor: pointer;
+}
+
+.detailsWrapper {
+    @include flexBox(row , flex-start , center , 8px);
+}
+
+.rateIcon {
+    @include textStyles(12px , null , $yellow-500);
+}
+
+.rate {
+    @include textStyles(14px , null , $dark-mode-secondary-bg-color);
+}
+
+.capacityIcon {
+    @include textStyles(14px , null , $slate-500);
+}
+
+.capacity {
+    @include textStyles(18px , null , $dark-mode-secondary-bg-color);
+}
+
+.locationIcon {
+    @include textStyles(12px , null , $slate-400);
+}
+
+.location {
+    @include textStyles(10px , null , $slate-400);
+}
+
+.oldPrice {
+    @include textStyles(10px , null , $slate-400);
+    text-decoration: line-through;
+}
+
+.discount {
+    @include flexBox(row , center , center , null);
+    @include boxModel(35px , 20px , null , null , $red-400);
+    @include textStyles(10px , null , $light-mode-secondary-bg-color);
+    border-radius: 30px;
+}
+
+.price {
+    @include textStyles(14px , null , $dark-mode-secondary-bg-color);
+}
+
+.oneNight {
+    @include textStyles(10px , null , $slate-400);
+}
+
+.likePost {
+    @include boxModel(30px , 30px , null , null , $light-mode-secondary-bg-color);
+    @include flexBox(null , center , center , null);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.filledHeartIcon {
+    color: $red-500;
+}
+
+[data-theme="dark"] {
+    .card {
+        border-color: $slate-700;
+    }
+
+    .rate , .capacity , .price {
+        color: $dark-mode-primary-text-color;
+    }
+
+    .location , .oldPrice , .oneNight {
+        color: $dark-mode-secondary-text-color;
+    }
+}

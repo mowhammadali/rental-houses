@@ -39,88 +39,11 @@
 .carouselContainer .swiperSlide {
   width: 260px;
 }
-.carouselContainer .card {
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  border: 1px solid rgb(235, 235, 235);
-  border-radius: 10px;
+
+[data-theme=dark] .title {
+  color: #d7d7d7;
 }
-.carouselContainer .cardImage {
-  width: 100%;
-  height: 180px;
-  border-radius: 10px 10px 6px 6px;
-}
-.carouselContainer .cardBody {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-}
-.carouselContainer .detailsWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-}
-.carouselContainer .rateIcon {
-  font-size: 12px;
-  color: #eab308;
-}
-.carouselContainer .rate {
-  font-size: 14px;
-  color: #535b66;
-}
-.carouselContainer .capacityIcon {
-  font-size: 14px;
-  color: #64748b;
-}
-.carouselContainer .capacity {
-  font-size: 18px;
-  color: #535b66;
-}
-.carouselContainer .locationIcon {
-  font-size: 12px;
-  color: #94a3b8;
-}
-.carouselContainer .location {
-  font-size: 10px;
-  color: #94a3b8;
-}
-.carouselContainer .oldPrice {
-  font-size: 10px;
-  color: #94a3b8;
-  text-decoration: line-through;
-}
-.carouselContainer .discount {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 35px;
-  height: 20px;
-  background-color: #f87171;
-  font-size: 10px;
-  color: #f6f6f6;
-  border-radius: 30px;
-}
-.carouselContainer .price {
-  font-size: 14px;
-  color: #535b66;
-}
-.carouselContainer .oneNight {
-  font-size: 10px;
-  color: #94a3b8;
+[data-theme=dark] .showAllButton {
+  color: #d7d7d7;
+  background-color: #202531;
 }/*# sourceMappingURL=Carousel.module.css.map */

@@ -28,72 +28,15 @@
     .swiperSlide {
         width: 260px;
     }
-    
-    .card {
-        cursor: pointer;
-        user-select: none;
-        @include flexBox(column , space-between , flex-start , null);
-        @include boxModel(100% , 100% , 0px , null , null);
-        border: 1px solid rgb(235, 235, 235);
-        border-radius: 10px;
+}
+
+[data-theme="dark"] {
+    .title {
+        color: $dark-mode-secondary-text-color;
     }
 
-    .cardImage {
-        width: 100%;
-        height:180px;
-        border-radius: 10px 10px 6px 6px;
-    }
-
-    .cardBody {
-        @include flexBox(column , space-between , flex-start , null);
-        @include boxModel(100% , 100% , 10px , null , null);
-    }
-
-    .detailsWrapper {
-        @include flexBox(row , flex-start , center , 8px);
-    }
-
-    .rateIcon {
-        @include textStyles(12px , null , $yellow-500);
-    }
-
-    .rate {
-        @include textStyles(14px , null , $dark-mode-secondary-bg-color);
-    }
-
-    .capacityIcon {
-        @include textStyles(14px , null , $slate-500);
-    }
-
-    .capacity {
-        @include textStyles(18px , null , $dark-mode-secondary-bg-color);
-    }
-
-    .locationIcon {
-        @include textStyles(12px , null , $slate-400);
-    }
-
-    .location {
-        @include textStyles(10px , null , $slate-400);
-    }
-
-    .oldPrice {
-        @include textStyles(10px , null , $slate-400);
-        text-decoration: line-through;
-    }
-
-    .discount {
-        @include flexBox(row , center , center , null);
-        @include boxModel(35px , 20px , null , null , $red-400);
-        @include textStyles(10px , null , $light-mode-secondary-bg-color);
-        border-radius: 30px;
-    }
-
-    .price {
-        @include textStyles(14px , null , $dark-mode-secondary-bg-color);
-    }
-
-    .oneNight {
-        @include textStyles(10px , null , $slate-400);
+    .showAllButton {
+        color: $dark-mode-secondary-text-color;
+        background-color: $dark-mode-primary-shadow-color;
     }
 }
