@@ -1,0 +1,49 @@
+.carouselContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+.carouselContainer .info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.carouselContainer .title {
+  font-size: 18px;
+  color: #535b66;
+}
+.carouselContainer .showAllButton {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  width: 110px;
+  height: 40px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #535b66;
+  background-color: #fff;
+  border: 1px solid #94a3b8;
+}
+.carouselContainer .mySwiper {
+  width: 100%;
+  height: 340px;
+}
+.carouselContainer .swiperSlide {
+  width: 260px;
+}
+
+[data-theme=dark] .title {
+  color: #d7d7d7;
+}
+[data-theme=dark] .showAllButton {
+  color: #d7d7d7;
+  background-color: #202531;
+}/*# sourceMappingURL=Carousel.module.css.map */

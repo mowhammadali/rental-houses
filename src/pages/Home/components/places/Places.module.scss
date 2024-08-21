@@ -47,6 +47,10 @@
         right: 6%;
     }
 
+    @include media('M' , false) {
+        padding: 0 100px;
+    }
+
     @include media('S' , false) {
         padding: 0 80px;
     }
