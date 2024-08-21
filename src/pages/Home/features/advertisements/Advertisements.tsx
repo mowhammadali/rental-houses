@@ -10,12 +10,12 @@ const Advertisements = () => {
     ];
 
     const query = useHouses();
-    const { data , isLoading , error , isError } = query;
+    const { data , isLoading , error , isError , isFetching } = query;
     
     return (
         <div className={css.advertisementContainer}>
             {
-                carousels.map(carousel => <Carousel key={carousel?.id} houses={data} isLoading={isLoading} {...carousel}/>)
+                carousels.map(carousel => <Carousel key={carousel?.id} houses={data} isLoading={isLoading} isFetching={isFetching} {...carousel}/>)
             }
         </div>
     )

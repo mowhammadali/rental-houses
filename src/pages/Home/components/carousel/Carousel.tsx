@@ -1,5 +1,6 @@
 import css from "./Carousel.module.css";
 import CarouselCard from "../carouselCard/CarouselCard";
+import Skeleton from 'react-loading-skeleton'
 import { useEffect, useState } from "react";
 import { HouseType } from "../../../../types/commonTypes";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,12 +8,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 type PropsType = {
     houses: HouseType[];
     isLoading: boolean;
+    isFetching: boolean;
     state: string;
     title: string;
 };
 
-const Carousel = ({houses, isLoading, title, state}: PropsType): JSX.Element | null => {
+const Carousel = ({houses, isLoading, isFetching, title, state}: PropsType): JSX.Element | null => {
     const [respectiveHouses, setRespectiveHouses] = useState<[] | HouseType[]>([]);
+    const isPending = isLoading || isFetching;
 
     useEffect(() => {
         if (!isLoading) {
@@ -21,13 +24,23 @@ const Carousel = ({houses, isLoading, title, state}: PropsType): JSX.Element | n
         }
     }, [isLoading]);
 
-    if (respectiveHouses.length === 0) return null;
-
     return (
         <div className={css.carouselContainer}>
             <div className={css.info}>
-                <p className={css.title}>{title}</p>
-                <button className={css.showAllButton}>مشاهده همه</button>
+                {
+                    isPending
+                    ?
+                    <Skeleton style={{width: '150px' , height: '24px'}} borderRadius={8}/>
+                    :
+                    <p className={css.title}>{title}</p>
+                }
+                {
+                    isPending
+                    ?
+                    <Skeleton style={{width: '110px' , height: '40px'}} borderRadius={8}/>
+                    :
+                    <button className={css.showAllButton}>مشاهده همه</button>
+                }
             </div>
             <>
                 <Swiper
@@ -42,7 +55,7 @@ const Carousel = ({houses, isLoading, title, state}: PropsType): JSX.Element | n
                 >
                     {respectiveHouses.map((house) => (
                         <SwiperSlide key={house.id} className={css.swiperSlide}>
-                            <CarouselCard house={house}/>
+                            <CarouselCard house={house} isLoading={isLoading} isFetching={isFetching}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>
