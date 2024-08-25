@@ -1,6 +1,7 @@
 import Navbar from './features/navbar/Navbar'
 import Header from './features/header/Header';
 import Advertisements from './features/advertisements/Advertisements';
+import Experience from './features/experience/Experience';
 import css from './Home.module.css';
 
 const Home = (): JSX.Element => {
@@ -9,8 +10,9 @@ const Home = (): JSX.Element => {
             <Navbar />
             <Header />
             <Advertisements />
+            <Experience />
         </div>
     )
 }
 
-export default Home
+export default Home;

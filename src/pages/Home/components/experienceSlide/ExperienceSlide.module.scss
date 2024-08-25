@@ -1,0 +1,57 @@
+@import '../../../../styles/mixin';
+@import '../../../../styles/variables';
+
+.slide {
+    @include flexBox(column , null , flex-start , null);
+    @include boxModel(100% , 100% , 0px , null , null);
+    border: 1px solid $slate-200;
+    border-radius: 16px;
+
+    .image {
+        width: 100%;
+        height: 70%;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .content {
+        @include flexBox(column , null , flex-start , 10px);
+        padding: 10px 30px;
+    }
+
+    .caption {
+        @include textStyles(14px , null , $red-400);
+    }
+
+    .title {
+        color: $slate-800;
+    }
+
+    .context {
+        @include textStyles(12px , null , $slate-600);
+    }
+
+    @include media("S", false) {
+        .content {
+            gap: 6px;
+            padding: 5px 20px;
+        }
+
+        .caption {
+            font-size: 12px;
+        }
+    }
+}
+
+[data-theme="dark"] {
+    .slide {
+        border-color: $slate-700;
+    }
+
+    .title {
+        color: $dark-mode-secondary-text-color;
+    }
+
+    .context {
+        color: $slate-400;
+    }
+}
