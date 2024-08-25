@@ -3,6 +3,7 @@ import useTheme from '../../hooks/useTheme/useTheme';
 import { Outlet } from 'react-router-dom';
 import { ThemeCustomHooksType } from '../../types/commonTypes';
 import 'swiper/css';
+import "swiper/css/navigation"
 import 'react-loading-skeleton/dist/skeleton.css';
 
 export const ThemeContext = React.createContext<ThemeCustomHooksType | null>(null);
